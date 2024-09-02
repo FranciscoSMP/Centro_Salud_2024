@@ -1,4 +1,29 @@
-CREATE DATABASE Centro_Salud;
+create database Centro_Salud
+on primary (
+			name='bd.CentroSalud', 
+			filename='C:\basedatos\bd_centrosalud.mdf',
+			size=8mb,
+			maxsize=500mb,
+			filegrowth=10mb
+			)
+log on
+			(
+			name='bd.centrosalud_log', 
+			filename='C:\basedatos\bd_centrosalud.ldf',
+			size=8mb,
+			maxsize=100mb,
+			filegrowth=10mb
+			)
+
+ALTER DATABASE Centro_Salud
+ADD FILE 
+(
+name='bd.CENTROSALUD1', 
+filename='C:\basedatos\bd_CENTROSALUD1.ndf',
+size=8mb,
+maxsize=500mb,
+filegrowth=10mb
+)
 
 USE Centro_Salud;
 
@@ -10,8 +35,6 @@ CREATE TABLE Departamento(
 CREATE TABLE Municipio(
     Id_Municipio INT PRIMARY KEY IDENTITY(1,1),
     Nombre_Municipio VARCHAR(50) NOT NULL,
-    Zona VARCHAR(50) NOT NULL,
-    Calle VARCHAR(50) NOT NULL,
     Id_Departamento INT NOT NULL,
     FOREIGN KEY (Id_Departamento) REFERENCES Departamento(Id_Departamento)
 	ON DELETE CASCADE
@@ -52,12 +75,13 @@ CREATE TABLE Paciente (
     DPI VARCHAR(13) PRIMARY KEY,
     Primer_nombre VARCHAR(50) NOT NULL,
     Segundo_nombre VARCHAR(50),
+	Tercer_nombre VARCHAR(50),
     Primer_apellido VARCHAR(50) NOT NULL,
     Segundo_apellido VARCHAR(50),
     Fecha_nacimiento DATE NOT NULL,
     Telefono VARCHAR(8) NOT NULL,
-    IGSS CHAR(1) NOT NULL,
-    Genero CHAR(1) NOT NULL,
+    IGSS CHAR(1) NOT NULL CHECK (IGSS IN ('S', 'N')),
+    Genero CHAR(1) NOT NULL CHECK (Genero IN ('M', 'F')),
     Id_Escolaridad INT NOT NULL,
     Id_Comunidad_Linguistica INT NOT NULL,
     Id_Profesion INT NOT NULL,
@@ -66,76 +90,58 @@ CREATE TABLE Paciente (
     Id_Pueblo INT NOT NULL,
     Id_Municipio INT NOT NULL,
     Id_Departamento INT NOT NULL,
-    FOREIGN KEY (Id_Escolaridad) REFERENCES Escolaridad(Id_Escolaridad),
+    FOREIGN KEY (Id_Escolaridad) REFERENCES Escolaridad(Id_Escolaridad)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE,
-    FOREIGN KEY (Id_Comunidad_Linguistica) REFERENCES Comunidad_Linguistica(Id_Comunidad_Linguistica),
+    FOREIGN KEY (Id_Comunidad_Linguistica) REFERENCES Comunidad_Linguistica(Id_Comunidad_Linguistica)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE,
-    FOREIGN KEY (Id_Profesion) REFERENCES Profesion(Id_Profesion),
+    FOREIGN KEY (Id_Profesion) REFERENCES Profesion(Id_Profesion)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE,
-    FOREIGN KEY (Id_Disapacidad) REFERENCES Discapacidad(Id_Discapacidad),
+    FOREIGN KEY (Id_Disapacidad) REFERENCES Discapacidad(Id_Discapacidad)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE,
-    FOREIGN KEY (Id_Control) REFERENCES Control(Id_Control),
+    FOREIGN KEY (Id_Control) REFERENCES Control(Id_Control)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE,
-    FOREIGN KEY (Id_Pueblo) REFERENCES Pueblo(Id_Pueblo),
+    FOREIGN KEY (Id_Pueblo) REFERENCES Pueblo(Id_Pueblo)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE,
-    FOREIGN KEY (Id_Municipio) REFERENCES Municipio(Id_Municipio),
+    FOREIGN KEY (Id_Municipio) REFERENCES Municipio(Id_Municipio)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE,
     FOREIGN KEY (Id_Departamento) REFERENCES Departamento(Id_Departamento)
 );
 
-CREATE TABLE Consulta (
+CREATE TABLE Consulta(
     Id_Consulta INT PRIMARY KEY IDENTITY(1,1),
     Fecha_Consulta DATE NOT NULL,
-    DPI_Paciente VARCHAR(20) NOT NULL,
+    DPI_Paciente VARCHAR(13) NOT NULL,
     FOREIGN KEY (DPI_Paciente) REFERENCES Paciente(DPI)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
 
-CREATE TABLE Paciente_Consulta (
-    DPI_Paciente VARCHAR(20) NOT NULL,
+CREATE TABLE Paciente_Consulta(
+	Paciente_Consulta INT PRIMARY KEY IDENTITY(1,1),
+    DPI_Paciente VARCHAR(13) NOT NULL,
     Id_Consulta INT NOT NULL,
-    PRIMARY KEY (DPI_Paciente, Id_Consulta),
     FOREIGN KEY (DPI_Paciente) REFERENCES Paciente(DPI),
-	ON DELETE CASCADE
-	ON UPDATE CASCADE,
     FOREIGN KEY (Id_Consulta) REFERENCES Consulta(Id_Consulta)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
 
-CREATE TABLE Centro_De_Salud (
-    Id_Centro_Salud INT PRIMARY KEY IDENTITY(1,1),
-    Nombre_Centro_Salud VARCHAR(100) NOT NULL,
-    Id_Municipio INT NOT NULL,
-	Id_Departamento INT NOT NULL,
-    FOREIGN KEY (Id_Municipio) REFERENCES Municipio(Id_Municipio),
-	ON DELETE CASCADE
-	ON UPDATE CASCADE,
-	FOREIGN KEY (Id_Departamento) REFERENCES Departamento(Id_Departamento)
-	ON DELETE CASCADE
-	ON UPDATE CASCADE
-);
-
 CREATE TABLE Enfermero (
-    DPI_Enfermero VARCHAR(20) PRIMARY KEY,
-    Primer_Nombre_Enfermero VARCHAR(50) NOT NULL,
-    Segundo_Nombre_Enfermero VARCHAR(50),
-    Primer_Apellido_Enfermero VARCHAR(50) NOT NULL,
-    Segundo_Apellido_Enfermero VARCHAR(50),
+    DPI_Enfermero VARCHAR(13) PRIMARY KEY,
+    Primer_Nombre VARCHAR(50) NOT NULL,
+    Segundo_Nombre VARCHAR(50),
+	Tercer_Nombre VARCHAR(50),
+    Primer_Apellido VARCHAR(50) NOT NULL,
+    Segundo_Apellido VARCHAR(50),
     Id_Municipio INT NOT NULL,
-	Id_Departamento INT NOT NULL,
-    FOREIGN KEY (Id_Municipio) REFERENCES Municipio(Id_Municipio),
+    FOREIGN KEY (Id_Municipio) REFERENCES Municipio(Id_Municipio)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE,
-	FOREIGN KEY (Id_Departamento) REFERENCES Departamento(Id_Departamento)
-	ON DELETE CASCADE
-	ON UPDATE CASCADE
 );
