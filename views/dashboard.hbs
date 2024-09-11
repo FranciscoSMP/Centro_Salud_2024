@@ -1,0 +1,14 @@
+    <div class="container mt-5">
+        <h2 class="text-center">Bienvenido, {{user.Nombre_Usuario}}</h2>
+        <p class="text-center">Has iniciado sesión como <strong>{{user.Rol}}</strong>.</p>
+
+        {{#ifCond user.Id_Rol '==' 1}}
+            <p class="text-center">Eres administrador y puedes gestionar toda la base de datos.</p>
+        {{else}}
+            <p class="text-center">Eres digitador y tienes acceso limitado a la base de datos.</p>
+        {{/ifCond}}
+
+        <div class="text-center">
+            <a href="/users/logout" class="btn btn-secondary">Cerrar sesión</a>
+        </div>
+    </div>
