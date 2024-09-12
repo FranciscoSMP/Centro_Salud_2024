@@ -5,8 +5,8 @@ const sql = require('mssql');
 const config = {
     user: 'sa',
     password: 'r62af79a',
-    server: 'LAPTOP-C6AMNR9V\\SQLEXPRESS', // Cambia a tu servidor
-    //server: 'VIRTUALPC\\SQLEXPRESS', // Cambia a tu servidor  
+    //server: 'LAPTOP-C6AMNR9V\\SQLEXPRESS', // Cambia a tu servidor
+    server: 'VIRTUALPC\\SQLEXPRESS', // Cambia a tu servidor  
     database: 'Centro_Salud',
     options: {
         encrypt: false, // Cambia si es necesario

@@ -1,6 +1,6 @@
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
-const { poolPromise } = require('./db');
+const { poolPromise } = require('../keys');
 
 module.exports = function(passport) {
     passport.use(new LocalStrategy(async (username, password, done) => {
@@ -15,7 +15,6 @@ module.exports = function(passport) {
                 return done(null, false, { message: 'Usuario no registrado' });
             }
 
-            // Compara la contraseña ingresada con la contraseña almacenada en la base de datos
             const isMatch = await bcrypt.compare(password, user.Contrasenia);
             if (isMatch) {
                 return done(null, user);

@@ -2,23 +2,19 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 
-// Ruta de login
 router.get('/login', (req, res) => {
-    const role = req.query.role || 'Digitador'; // Asignar "Digitador" como rol por defecto si no se selecciona
-    res.render('login', { role });
+    res.render('login');
 });
 
-// Ruta para manejar el inicio de sesión
 router.post('/login', (req, res, next) => {
-    const role = req.body.role; // Rol seleccionado
+    const role = req.body;
     passport.authenticate('local', {
-        successRedirect: role === 'Admin' ? '/dashboard' : '/dashboard',
+        successRedirect: '/dashboard',
         failureRedirect: '/users/login',
         failureFlash: true
     })(req, res, next);
 });
 
-// Ruta de dashboard (protección por rol)
 router.get('/dashboard', (req, res) => {
     if (req.isAuthenticated()) {
         res.render('dashboard', { user: req.user });
@@ -31,7 +27,7 @@ router.get('/dashboard', (req, res) => {
 router.get('/logout', (req, res, next) => {
     req.logout((err) => {
         if (err) {
-            return next(err); // Manejo de errores
+            return next(err);
         }
         req.flash('success_msg', 'Has cerrado sesión');
         res.redirect('/users/login');
