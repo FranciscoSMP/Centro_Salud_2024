@@ -41,6 +41,7 @@ app.use((req, res, next) => {
 
 app.use(require('./routes/index'));
 app.use('/users', require('./routes/users'));
+app.use('/departamento', require('./routes/departamento'));
 
 app.listen(app.get('port'), () => {
     console.log(`Servidor en el puerto ${app.get('port')}`);
