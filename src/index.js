@@ -43,7 +43,10 @@ app.use(require('./routes/index'));
 app.use('/users', require('./routes/users'));
 app.use('/departamento', require('./routes/departamento'));
 app.use('/pueblo', require('./routes/pueblo'));
-
+app.use('/control', require('./routes/control'));
+app.use('/profesion', require('./routes/profesion'));
+app.use('/comunidad_linguistica', require('./routes/comunidad_linguistica'));
+app.use('/enfermero', require('./routes/enfermero'));
 app.listen(app.get('port'), () => {
     console.log(`Servidor en el puerto ${app.get('port')}`);
 });
