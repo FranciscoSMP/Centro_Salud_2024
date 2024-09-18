@@ -9,7 +9,6 @@ const guardarEnBaseDatos = async (querySQLServer) => {
     ejecutarSQLServer(querySQLServer)
 };
 
-exports.addDepartamento= async ({ Nombre_Pueblo }) => {
 exports.addPueblo= async ({ Nombre_Pueblo }) => {
     const query = `INSERT INTO Pueblo (Nombre_Pueblo) VALUES ('${Nombre_Pueblo}')`;
     await guardarEnBaseDatos(query);
