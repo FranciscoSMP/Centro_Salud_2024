@@ -50,6 +50,9 @@ app.use('/control', require('./routes/control'));
 app.use('/profesion', require('./routes/profesion'));
 app.use('/comunidad_linguistica', require('./routes/comunidad_linguistica'));
 app.use('/enfermero', require('./routes/enfermero'));
+app.use('/municipio', require('./routes/municipio'));
+app.use('/paciente', require('./routes/paciente'));
+app.use('/paciente_consulta', require('./routes/pacienteConsulta'));
 
 app.listen(app.get('port'), () => {
     console.log(`Servidor en el puerto ${app.get('port')}`);
