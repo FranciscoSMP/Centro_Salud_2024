@@ -9,7 +9,7 @@ const guardarEnBaseDatos = async (querySQLServer) => {
     ejecutarSQLServer(querySQLServer)
 };
 
-exports.addEnfermero= async ({ DPI_Enfermero, Primer_Nombre, Segundo_Nombre, Tercer_Nombre, Primer_Apellido, Segundo_Apellido }) => {
-    const query = `INSERT INTO Enfermero (DPI_Enfermero, Primer_Nombre, Segundo_Nombre, Tercer_Nombre, Primer_Apellido, Segundo_Apellido) VALUES ('${DPI_Enfermero, Primer_Nombre, Segundo_Nombre, Tercer_Nombre, Primer_Apellido, Segundo_Apellido}')`;
+exports.addEnfermero= async ({ DPI_Enfermero, Primer_Nombre, Segundo_Nombre, Tercer_Nombre, Primer_Apellido, Segundo_Apellido, Id_Municipio }) => {
+    const query = `INSERT INTO Enfermero (DPI_Enfermero, Primer_Nombre, Segundo_Nombre, Tercer_Nombre, Primer_Apellido, Segundo_Apellido, Id_Municipio) VALUES ('${DPI_Enfermero}', '${Primer_Nombre}', '${Segundo_Nombre}', '${Tercer_Nombre}', '${Primer_Apellido}', '${Segundo_Apellido}', ${Id_Municipio})`;
     await guardarEnBaseDatos(query);
 };
