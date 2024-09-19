@@ -46,7 +46,10 @@ app.use('/pueblo', require('./routes/pueblo'));
 app.use('/discapacidad', require('./routes/discapacidad'));
 app.use('/escolaridad', require('./routes/escolaridad'));
 app.use('/consulta', require('./routes/consulta'));
-
+app.use('/control', require('./routes/control'));
+app.use('/profesion', require('./routes/profesion'));
+app.use('/comunidad_linguistica', require('./routes/comunidad_linguistica'));
+app.use('/enfermero', require('./routes/enfermero'));
 
 app.listen(app.get('port'), () => {
     console.log(`Servidor en el puerto ${app.get('port')}`);
