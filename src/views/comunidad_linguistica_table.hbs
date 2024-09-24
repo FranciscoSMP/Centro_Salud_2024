@@ -1,0 +1,19 @@
+<!-- comunidad_linguistica_table.hbs -->
+
+<h2>Lista de Comunidades Lingüísticas</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre de la Comunidad</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each comunidades}}
+        <tr>
+            <td>{{this.Id_Comunidad_Linguistica}}</td> <!-- Asegúrate de que los campos coincidan con la base de datos -->
+            <td>{{this.Nombre_Comunidad_Linguistica}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
