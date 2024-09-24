@@ -54,6 +54,8 @@ app.use('/municipio', require('./routes/municipio'));
 app.use('/paciente', require('./routes/paciente'));
 app.use('/paciente_consulta', require('./routes/pacienteConsulta'));
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.listen(app.get('port'), () => {
     console.log(`Servidor en el puerto ${app.get('port')}`);
 });
