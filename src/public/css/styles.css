@@ -169,7 +169,3 @@ h1, h2 {
 .navbar-toggler {
     border-color: #007bff;
 }
-
-.navbar-toggler-icon {
-    background-image: url('data:image/svg+xml,...'); /* Asegúrate de que el icono de hamburguesa se ajuste al diseño */
-}
