@@ -17,3 +17,13 @@ const guardarDatos = (model, redirect) => async (req, res) => {
 exports.municipio = renderView('municipio');
 
 exports.addMunicipio = guardarDatos(municipioModel.addMunicipio, '/municipio/table');
+
+exports.getMunicipio = async (req, res) => {
+    try {
+        const municipio = await municipioModel.getMunicipio();
+        res.render('municipio_table', { municipio });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al obtener las relaciones');
+    }
+};

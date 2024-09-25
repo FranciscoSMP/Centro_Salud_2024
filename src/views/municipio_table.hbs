@@ -1,0 +1,19 @@
+<h2>Lista de Municipio</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre del Municipio</th>
+            <th>ID Departamento</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each municipio}}
+        <tr>
+            <td>{{this.Id_Municipio}}</td> <!-- Asegúrate de que los campos coincidan con la base de datos -->
+            <td>{{this.Nombre_Municipio}}</td>
+            <td>{{this.Id_Departamento}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

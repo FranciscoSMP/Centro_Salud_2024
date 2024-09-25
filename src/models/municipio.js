@@ -13,3 +13,9 @@ exports.addMunicipio= async ({ Nombre_Municipio, Id_Departamento }) => {
     const query = `INSERT INTO Municipio (Nombre_Municipio, Id_Departamento) VALUES ('${Nombre_Municipio}', ${Id_Departamento})`;
     await guardarEnBaseDatos(query);
 };
+
+exports.getMunicipio = async () => {
+    const conSQL = await pool.poolPromise;
+    const result = await conSQL.request().query('SELECT * FROM Municipio');
+    return result.recordset;
+};
