@@ -23,7 +23,14 @@ exports.getMunicipio = async () => {
 exports.updateMunicipio = async ({ Id_Municipio, Nombre_Municipio, Id_Departamento }) => {
     const query = `
         UPDATE Municipio
-        SET Nombre_Municipio = '${Nombre_Municipio}'
+        SET Nombre_Municipio = '${Nombre_Municipio}',
+        Id_Departamento = ${Id_Departamento}
         WHERE Id_Municipio = ${Id_Municipio}`;
     await guardarEnBaseDatos(query);
+};  
+
+exports.getMunicipioById = async (id) => {
+    const conSQL = await pool.poolPromise;
+    const result = await conSQL.request().query(`SELECT * FROM Municipio WHERE Id_Municipio = ${id}`);
+    return result.recordset[0];
 };

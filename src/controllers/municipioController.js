@@ -40,17 +40,10 @@ exports.updateMunicipio = async (req, res) => {
 
 exports.getMunicipioById = async (req, res) => {
     try {
-        const municipio = await municipioModel.updateMunicipio(req.params.id);
+        const municipio = await municipioModel.getMunicipioById(req.params.id);
         res.render('municipio_update', { municipio });
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al obtener la comunidad lingüística');
     }
 };
-
-exports.getMunicipioById = async (id) => {
-    const conSQL = await pool.poolPromise;
-    const result = await conSQL.request().query(`SELECT * FROM Municipio WHERE Id_Municipio = ${id}`);
-    return result.recordset[0];
-};
-

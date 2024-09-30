@@ -47,12 +47,3 @@ exports.getComunidadById = async (req, res) => {
         res.status(500).send('Error al obtener la comunidad lingüística');
     }
 };
-
-exports.editarComunidad = (req, res) => {
-    const id = req.query.id;
-    if (id) {
-        res.redirect(`/comunidad_linguistica/editar/${id}`);
-    } else {
-        res.status(400).send('ID de comunidad no proporcionado');
-    }
-};

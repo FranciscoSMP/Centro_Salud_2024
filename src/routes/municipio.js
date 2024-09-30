@@ -12,4 +12,5 @@ router.post('/actualizar/municipio', municipioController.updateMunicipio);
 
 router.get('/editar/:id', municipioController.getMunicipioById);
 
+
 module.exports = router;
