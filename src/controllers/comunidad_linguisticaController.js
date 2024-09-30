@@ -14,7 +14,7 @@ const guardarDatos = (model, redirect) => async (req, res) => {
     }
 };
 
-exports.comunidad_linguistica = renderView('comunidad_linguistica');
+exports.comunidad_linguistica = renderView('add/comunidad_linguistica');
 
 exports.addComunidad_Linguistica = guardarDatos(comunidad_linguisticaModel.addComunidad_Linguistica, '/comunidad_linguistica/table');
 

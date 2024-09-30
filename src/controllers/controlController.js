@@ -14,7 +14,7 @@ const guardarDatos = (model, redirect) => async (req, res) => {
     }
 };
 
-exports.control = renderView('control');
+exports.control = renderView('add/control');
 
 exports.addControl = guardarDatos(controlModel.addControl, '/control/table');
 

@@ -14,7 +14,7 @@ const guardarDatos = (model, redirect) => async (req, res) => {
     }
 };
 
-exports.escolaridad = renderView('escolaridad');
+exports.escolaridad = renderView('add/escolaridad');
 
 exports.addEscolaridad = guardarDatos(escolaridadModel.addEscolaridad, '/escolaridad/table');
 

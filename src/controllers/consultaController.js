@@ -15,7 +15,7 @@ const guardarDatos = (model, redirect) => async (req, res) => {
     }
 };
 
-exports.consulta = renderView('consulta');
+exports.consulta = renderView('add/consulta');
 
 exports.addConsulta = guardarDatos(consultaModel.addConsulta, '/consulta/table');
 

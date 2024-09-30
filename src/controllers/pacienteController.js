@@ -15,7 +15,7 @@ const guardarDatos = (model, redirect) => async (req, res) => {
     }
 };
 
-exports.paciente = renderView('paciente');
+exports.paciente = renderView('add/paciente');
 
 exports.addPaciente = guardarDatos(pacienteModel.addPaciente, '/paciente/table');
 
