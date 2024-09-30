@@ -19,3 +19,11 @@ exports.getMunicipio = async () => {
     const result = await conSQL.request().query('SELECT * FROM Municipio');
     return result.recordset;
 };
+
+exports.updateMunicipio = async ({ Id_Municipio, Nombre_Municipio, Id_Departamento }) => {
+    const query = `
+        UPDATE Municipio
+        SET Nombre_Municipio = '${Nombre_Municipio}'
+        WHERE Id_Municipio = ${Id_Municipio}`;
+    await guardarEnBaseDatos(query);
+};

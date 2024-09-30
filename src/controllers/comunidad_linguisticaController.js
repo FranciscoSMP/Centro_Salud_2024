@@ -27,3 +27,32 @@ exports.getComunidad_Linguistica = async (req, res) => {
         res.status(500).send('Error al obtener comunidades lingüísticas');
     }
 };
+
+exports.updateComunidad_Linguistica = async (req, res) => {
+    try {
+        await comunidad_linguisticaModel.updateComunidad_Linguistica(req.body);
+        res.redirect('/comunidad_linguistica/table');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al actualizar la comunidad lingüística');
+    }
+};
+
+exports.getComunidadById = async (req, res) => {
+    try {
+        const comunidad = await comunidad_linguisticaModel.getComunidadById(req.params.id);
+        res.render('comunidad_linguistica_update', { comunidad });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al obtener la comunidad lingüística');
+    }
+};
+
+exports.editarComunidad = (req, res) => {
+    const id = req.query.id;
+    if (id) {
+        res.redirect(`/comunidad_linguistica/editar/${id}`);
+    } else {
+        res.status(400).send('ID de comunidad no proporcionado');
+    }
+};

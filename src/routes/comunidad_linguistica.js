@@ -8,4 +8,8 @@ router.get('/table', comunidad_linguisticaController.getComunidad_Linguistica);
 
 router.post('/guardar/comunidad_linguistica', comunidad_linguisticaController.addComunidad_Linguistica);
 
+router.post('/actualizar/comunidad_linguistica', comunidad_linguisticaController.updateComunidad_Linguistica);
+
+router.get('/editar/:id', comunidad_linguisticaController.getComunidadById);
+
 module.exports = router;

@@ -8,4 +8,8 @@ router.get('/table', municipioController.getMunicipio);
 
 router.post('/guardar/municipio', municipioController.addMunicipio);
 
+router.post('/actualizar/municipio', municipioController.updateMunicipio);
+
+router.get('/editar/:id', municipioController.getMunicipioById);
+
 module.exports = router;

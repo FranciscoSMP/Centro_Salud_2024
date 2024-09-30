@@ -4,13 +4,17 @@
         <tr>
             <th>ID</th>
             <th>Nombre de la Comunidad</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
         {{#each comunidades}}
         <tr>
-            <td>{{this.Id_Comunidad_Linguistica}}</td> <!-- Asegúrate de que los campos coincidan con la base de datos -->
+            <td>{{this.Id_Comunidad_Linguistica}}</td>
             <td>{{this.Nombre_Comunidad_Linguistica}}</td>
+            <td>
+                <a href="/comunidad_linguistica/editar/{{this.Id_Comunidad_Linguistica}}">Editar</a>
+            </td>
         </tr>
         {{/each}}
     </tbody>
