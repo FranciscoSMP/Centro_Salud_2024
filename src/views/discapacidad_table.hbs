@@ -4,6 +4,7 @@
         <tr>
             <th>ID</th>
             <th>Nombre de la Discapacidad</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -11,6 +12,9 @@
         <tr>
             <td>{{this.Id_Discapacidad}}</td> <!-- Asegúrate de que los campos coincidan con la base de datos -->
             <td>{{this.Tipo_Discapacidad}}</td>
+            <td>
+                <a href="/discapacidad/editar/{{this.Id_Discapacidad}}">Editar</a>
+            </td>
         </tr>
         {{/each}}
     </tbody>

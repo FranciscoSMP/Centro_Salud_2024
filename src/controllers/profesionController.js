@@ -27,3 +27,25 @@ exports.getProfesion = async (req, res) => {
         res.status(500).send('Error al obtener profesiones');
     }
 };
+
+
+
+exports.updateProfesion = async (req, res) => {
+    try {
+        await profesionModel.updateProfesion(req.body);
+        res.redirect('/profesion/table');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al actualizar la profesion');
+    }
+};
+
+exports.getProfesionById = async (req, res) => {
+    try {
+        const profesion = await profesionModel.getProfesionById(req.params.id);
+        res.render('profesion_update', { profesion });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al obtener la profesion');
+    }
+};
