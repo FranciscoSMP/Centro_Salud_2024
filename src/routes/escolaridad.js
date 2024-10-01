@@ -8,4 +8,8 @@ router.get('/table', escolaridadController.getEscolaridad);
 
 router.post('/guardar/escolaridad', escolaridadController.addEscolaridad);
 
+router.post('/actualizar/escolaridad', escolaridadController.updateEscolaridad);
+
+router.get('/editar/:id', escolaridadController.getEscolaridadById);
+
 module.exports = router;

@@ -5,6 +5,7 @@
             <th>ID Consulta</th>
             <th>Fecha Consulta</th>
             <th>DPI Paciente</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -13,6 +14,9 @@
             <td>{{this.Id_Consulta}}</td>
             <td>{{this.Fecha_Consulta}}</td>
             <td>{{this.DPI_Paciente}}</td>
+            <td>
+                <a href="/consulta/editar/{{this.Id_Consulta}}">Editar</a>
+            </td>
         </tr>
         {{/each}}
     </tbody>

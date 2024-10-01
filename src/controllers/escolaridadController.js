@@ -27,3 +27,23 @@ exports.getEscolaridad = async (req, res) => {
         res.status(500).send('Error al obtener Escolaridades');
     }
 };
+
+exports.updateEscolaridad = async (req, res) => {
+    try {
+        await escolaridadModel.updateEscolaridad(req.body);
+        res.redirect('/escolaridad/table');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al actualizar la escolaridad');
+    }
+};
+
+exports.getEscolaridadById = async (req, res) => {
+    try {
+        const escolaridad = await escolaridadModel.getEscolaridadById(req.params.id);
+        res.render('escolaridad_update', { escolaridad });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al obtener la escolaridad');
+    }
+};
