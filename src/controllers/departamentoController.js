@@ -27,3 +27,23 @@ exports.getDepartamento = async (req, res) => {
         res.status(500).send('Error al obtener departamentos');
     }
 };
+
+exports.updateDepartamento = async (req, res) => {
+    try {
+        await departamentoModel.updateDepartamento(req.body);
+        res.redirect('/departamento/table');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al actualizar el departamento');
+    }
+};
+
+exports.getDepartamentoById = async (req, res) => {
+    try {
+        const departamento = await departamentoModel.getDepartamentoById(req.params.id);
+        res.render('departamento_update', { departamento });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al obtener el departamento');
+    }
+};
