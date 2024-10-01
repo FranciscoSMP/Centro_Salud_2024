@@ -8,4 +8,8 @@ router.get('/table', puebloController.getPueblo);
 
 router.post('/guardar/pueblo', puebloController.addPueblo);
 
+router.post('/actualizar/pueblo', puebloController.updatePueblo);
+
+router.get('/editar/:id', puebloController.getPuebloById);
+
 module.exports = router;

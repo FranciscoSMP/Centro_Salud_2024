@@ -34,3 +34,27 @@ exports.getPaciente = async (req, res) => {
         res.status(500).send('Error al obtener pacientes');
     }
 };
+
+exports.updatePaciente = async (req, res) => {
+    try {
+        await pacienteModel.updatePaciente(req.body);
+        res.redirect('/paciente/table');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al actualizar el paciente');
+    }
+};
+
+exports.getPacienteById = async (req, res) => {
+    try {
+        const paciente = await pacienteModel.getPacienteById(req.params.id);
+        const formattedPaciente = {
+            ...paciente,
+            Fecha_nacimiento: format(new Date(paciente.Fecha_nacimiento), 'yyyy-MM-dd')
+        };
+        res.render('paciente_update', { paciente: formattedPaciente });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al obtener el paciente');
+    }
+};

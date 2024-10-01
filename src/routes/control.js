@@ -8,4 +8,8 @@ router.get('/table', controlController.getControl);
 
 router.post('/guardar/control', controlController.addControl);
 
+router.post('/actualizar/control', controlController.updateControl);
+
+router.get('/editar/:id', controlController.getControlById);
+
 module.exports = router;

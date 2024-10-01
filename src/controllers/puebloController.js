@@ -27,3 +27,23 @@ exports.getPueblo = async (req, res) => {
         res.status(500).send('Error al obtener pueblos');
     }
 };
+
+exports.updatePueblo = async (req, res) => {
+    try {
+        await puebloModel.updatePueblo(req.body);
+        res.redirect('/pueblo/table');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al actualizar pueblos');
+    }
+};
+
+exports.getPuebloById = async (req, res) => {
+    try {
+        const pueblo = await puebloModel.getPuebloById(req.params.id);
+        res.render('pueblo_update', { pueblo });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al obtener pueblos');
+    }
+};
