@@ -12,4 +12,6 @@ router.post('/actualizar/control', controlController.updateControl);
 
 router.get('/editar/:id', controlController.getControlById);
 
+router.post('/eliminar/:id', controlController.deleteControl);
+
 module.exports = router;

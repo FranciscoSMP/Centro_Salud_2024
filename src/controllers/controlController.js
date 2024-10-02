@@ -47,3 +47,13 @@ exports.getControlById = async (req, res) => {
         res.status(500).send('Error al obtener el control');
     }
 };
+
+exports.deleteControl = async (req, res) => {
+    try {
+        await controlModel.deleteControl(req.params.id);
+        res.redirect('/control/table');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al eliminar el control');
+    }
+};

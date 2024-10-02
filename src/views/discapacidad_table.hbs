@@ -14,6 +14,11 @@
             <td>{{this.Tipo_Discapacidad}}</td>
             <td>
                 <a href="/discapacidad/editar/{{this.Id_Discapacidad}}">Editar</a>
+                <form action="/discapacidad/eliminar/{{this.Id_Discapacidad}}" method="POST"
+                    style="display:inline;">
+                    <button type="submit"
+                        onclick="return confirm('¿Está seguro de que desea eliminar la Discapacidad?');">Eliminar</button>
+                </form>
             </td>
         </tr>
         {{/each}}

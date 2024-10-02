@@ -33,3 +33,8 @@ exports.getDiscapacidadById = async (id) => {
     const result = await conSQL.request().query(`SELECT * FROM Discapacidad WHERE Id_Discapacidad = ${id}`);
     return result.recordset[0];
 };
+
+exports.deleteDiscapacidad = async (id) => {
+    const query = `DELETE FROM Discapacidad WHERE Id_Discapacidad = ${id}`;
+    await guardarEnBaseDatos(query);
+};

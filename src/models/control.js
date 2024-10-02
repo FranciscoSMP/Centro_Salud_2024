@@ -33,3 +33,8 @@ exports.getControlById = async (id) => {
     const result = await conSQL.request().query(`SELECT * FROM Control WHERE Id_Control = ${id}`);
     return result.recordset[0];
 };
+
+exports.deleteControl = async (id) => {
+    const query = `DELETE FROM Control WHERE Id_Control = ${id}`;
+    await guardarEnBaseDatos(query);
+};
