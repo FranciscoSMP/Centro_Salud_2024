@@ -1,9 +1,11 @@
-<h2>Actualizar Profesion</h2>
-<form action="/profesion/actualizar/profesion" method="POST">
+<h2 class="text-center my-4">Actualizar Profesion</h2>
+<form action="/profesion/actualizar/profesion" method="POST" class="container form-General">
     <input type="hidden" name="Id_Profesion" value="{{profesion.Id_Profesion}}" />
-    <div class="form-group">
-        <label for="Profesion_Oficio">Tipo de profesion</label>
-        <input type="text" name="Profesion_Oficio" id="Profesion_Oficio" value="{{profesion.Profesion_Oficio}}" required>
+    <div class="form-group mb-3">
+        <label for="Profesion_Oficio" class="form-label">Tipo de profesion</label>
+        <input type="text" name="Profesion_Oficio" id="Profesion_Oficio" class="form-control" value="{{profesion.Profesion_Oficio}}" required>
     </div>
-    <button type="submit">Actualizar</button>
-</form>
+    <div class="text-center">
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+    </div>
+</form> 

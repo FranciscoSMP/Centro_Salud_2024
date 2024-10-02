@@ -1,9 +1,11 @@
-<h2>Actualizar Pueblos</h2>
-<form action="/pueblo/actualizar/pueblo" method="POST">
+<h2 class="text-center my-4">Actualizar Pueblos</h2>
+<form action="/pueblo/actualizar/pueblo" method="POST" class="container form-General">
     <input type="hidden" name="Id_Pueblo" value="{{pueblo.Id_Pueblo}}" />
-    <div class="form-group">
-        <label for="Nombre_Pueblo">Nombre del Pueblo</label>
-        <input type="text" name="Nombre_Pueblo" id="Nombre_Pueblo" value="{{pueblo.Nombre_Pueblo}}" required>
+    <div class="form-group mb-3">
+        <label for="Nombre_Pueblo" class="form-label">Nombre del Pueblo</label>
+        <input type="text" name="Nombre_Pueblo" id="Nombre_Pueblo" class="form-control" value="{{pueblo.Nombre_Pueblo}}" required>
     </div>
-    <button type="submit">Actualizar</button>
-</form>
+    <div class="text-center">
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+    </div>
+</form> 
