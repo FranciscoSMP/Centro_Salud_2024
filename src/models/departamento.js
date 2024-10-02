@@ -33,3 +33,8 @@ exports.getDepartamentoById = async (id) => {
     const result = await conSQL.request().query(`SELECT * FROM Departamento WHERE Id_Departamento = ${id}`);
     return result.recordset[0];
 };
+
+exports.deleteDepartamento = async (id) => {
+    const query = `DELETE FROM Departamento WHERE Id_Departamento = ${id}`;
+    await guardarEnBaseDatos(query);
+};

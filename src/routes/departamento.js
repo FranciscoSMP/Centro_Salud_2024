@@ -12,4 +12,6 @@ router.post('/actualizar/departamento', departamentoController.updateDepartament
 
 router.get('/editar/:id', departamentoController.getDepartamentoById);
 
+router.post('/eliminar/:id', departamentoController.deleteDepartamento);
+
 module.exports = router;

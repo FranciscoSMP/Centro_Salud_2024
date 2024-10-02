@@ -10,10 +10,15 @@
     <tbody>
         {{#each departamentos}}
         <tr>
-            <td>{{this.Id_Departamento}}</td> <!-- Asegúrate de que los campos coincidan con la base de datos -->
+            <td>{{this.Id_Departamento}}</td>
             <td>{{this.Nombre_Departamento}}</td>
             <td>
                 <a href="/departamento/editar/{{this.Id_Departamento}}">Editar</a>
+                <form action="/departamento/eliminar/{{this.Id_Departamento}}" method="POST"
+                    style="display:inline;">
+                    <button type="submit"
+                        onclick="return confirm('¿Está seguro de que desea eliminar este departamento?');">Eliminar</button>
+                </form>
             </td>
         </tr>
         {{/each}}

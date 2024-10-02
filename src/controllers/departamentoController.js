@@ -47,3 +47,13 @@ exports.getDepartamentoById = async (req, res) => {
         res.status(500).send('Error al obtener el departamento');
     }
 };
+
+exports.deleteDepartamento = async (req, res) => {
+    try {
+        await departamentoModel.deleteDepartamento(req.params.id);
+        res.redirect('/departamento/table');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al eliminar el departamento');
+    }
+};
