@@ -14,6 +14,11 @@
             <td>{{this.Profesion_Oficio}}</td>
             <td>
                 <a href="/profesion/editar/{{this.Id_Profesion}}">Editar</a>
+                <form action="/profesion/eliminar/{{this.Id_Profesion}}" method="POST"
+                    style="display:inline;">
+                    <button type="submit"
+                        onclick="return confirm('¿Está seguro de que desea eliminar datos de profesión?');">Eliminar</button>
+                </form>
             </td>
         </tr>
         {{/each}}

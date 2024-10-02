@@ -27,3 +27,23 @@ exports.getPacienteConsulta = async (req, res) => {
         res.status(500).send('Error al obtener las relaciones');
     }
 };
+
+exports.updatePacienteConsulta = async (req, res) => {
+    try {
+        await pacienteConsultaModel.updatePacienteConsulta(req.body);
+        res.redirect('/paciente_consulta/table');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al actualizar Paciente-Consulta');
+    }
+};
+
+exports.getPacienteConsultaById = async (req, res) => {
+    try {
+        const pacienteConsulta = await pacienteConsultaModel.getPacienteConsultaById(req.params.id);
+        res.render('pacienteConsulta_update', { pacienteConsulta });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al obtener la comunidad lingüística');
+    }
+};

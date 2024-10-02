@@ -12,4 +12,6 @@ router.post('/actualizar/profesion', profesionController.updateProfesion);
 
 router.get('/editar/:id', profesionController.getProfesionById);
 
+router.post('/eliminar/:id', profesionController.deleteProfesion);
+
 module.exports = router;

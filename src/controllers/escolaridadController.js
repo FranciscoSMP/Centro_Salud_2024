@@ -2,7 +2,7 @@ const escolaridadModel = require('../models/escolaridad');
 
 const renderView = (view) => (req, res) => {
     res.render(view);
-}
+};
 
 const guardarDatos = (model, redirect) => async (req, res) => {
     try {

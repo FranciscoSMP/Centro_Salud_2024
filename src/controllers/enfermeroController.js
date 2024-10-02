@@ -28,6 +28,26 @@ exports.getEnfermero = async (req, res) => {
     }
 };
 
+exports.updateEnfermero = async (req, res) => {
+    try {
+        await enfermeroModel.updateEnfermero(req.body);
+        res.redirect('/enfermero/table');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al actualizar Enfermero');
+    }
+};
+
+exports.getEnfermeroById = async (req, res) => {
+    try {
+        const enfermero = await enfermeroModel.getEnfermeroById(req.params.id);
+        res.render('enfermero_update', { enfermero });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al obtener a Enfermero');
+    }
+};
+
 exports.deleteEnfermero = async (req, res) => {
     try {
         await enfermeroModel.deleteEnfermero(req.params.id);

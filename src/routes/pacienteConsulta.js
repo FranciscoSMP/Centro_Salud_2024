@@ -8,4 +8,8 @@ router.get('/table', pacienteConsultaController.getPacienteConsulta);
 
 router.post('/guardar/paciente_consulta', pacienteConsultaController.addPacienteConsulta);
 
+router.post('/actualizar/paciente_consulta', pacienteConsultaController.updatePacienteConsulta);
+
+router.get('/editar/:id', pacienteConsultaController.getPacienteConsultaById);
+
 module.exports = router;

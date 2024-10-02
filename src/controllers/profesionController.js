@@ -28,8 +28,6 @@ exports.getProfesion = async (req, res) => {
     }
 };
 
-
-
 exports.updateProfesion = async (req, res) => {
     try {
         await profesionModel.updateProfesion(req.body);
@@ -47,5 +45,15 @@ exports.getProfesionById = async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al obtener la profesion');
+    }
+};
+
+exports.deleteProfesion = async (req, res) => {
+    try {
+        await profesionModel.deleteProfesion(req.params.id);
+        res.redirect('/profesion/table');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al eliminar profesion');
     }
 };

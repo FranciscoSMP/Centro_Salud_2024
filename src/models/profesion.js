@@ -33,3 +33,8 @@ exports.getProfesionById = async (id) => {
     const result = await conSQL.request().query(`SELECT * FROM Profesion WHERE Id_Profesion = ${id}`);
     return result.recordset[0];
 };
+
+exports.deleteProfesion = async (id) => {
+    const query = `DELETE FROM Profesion WHERE Id_Profesion = ${id}`;
+    await guardarEnBaseDatos(query);
+};
