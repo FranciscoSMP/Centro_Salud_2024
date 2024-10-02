@@ -19,3 +19,7 @@ exports.getEnfermero = async () => {
     const result = await conSQL.request().query('SELECT * FROM Enfermero');
     return result.recordset;
 };
+exports.deleteEnfermero = async (id) => {
+    const query = `DELETE FROM Enfermero WHERE DPI_Enfermero = ${id}`;
+    await guardarEnBaseDatos(query);
+};

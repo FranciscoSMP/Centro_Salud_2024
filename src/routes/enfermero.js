@@ -8,4 +8,6 @@ router.get('/table', enfermeroController.getEnfermero);
 
 router.post('/guardar/enfermero', enfermeroController.addEnfermero);
 
+router.post('/eliminar/:id', enfermeroController.deleteEnfermero);
+
 module.exports = router;

@@ -27,3 +27,13 @@ exports.getEnfermero = async (req, res) => {
         res.status(500).send('Error al obtener enfermeros');
     }
 };
+
+exports.deleteEnfermero = async (req, res) => {
+    try {
+        await enfermeroModel.deleteEnfermero(req.params.id);
+        res.redirect('/enfermero/table');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al eliminar enfermero');
+    }
+};
