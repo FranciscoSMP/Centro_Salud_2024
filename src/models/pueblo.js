@@ -33,3 +33,8 @@ exports.getPuebloById = async (id) => {
     const result = await conSQL.request().query(`SELECT * FROM Pueblo WHERE Id_Pueblo = ${id}`);
     return result.recordset[0];
 };
+
+exports.deletePueblo = async (id) => {
+    const query = `DELETE FROM Pueblo WHERE Id_Pueblo = ${id}`;
+    await guardarEnBaseDatos(query);
+};

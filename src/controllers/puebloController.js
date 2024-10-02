@@ -47,3 +47,13 @@ exports.getPuebloById = async (req, res) => {
         res.status(500).send('Error al obtener pueblos');
     }
 };
+
+exports.deletePueblo = async (req, res) => {
+    try {
+        await puebloModel.deletePueblo(req.params.id);
+        res.redirect('/pueblo/table');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al eliminar el pueblo');
+    }
+};

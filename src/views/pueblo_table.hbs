@@ -14,6 +14,11 @@
             <td>{{this.Nombre_Pueblo}}</td>
             <td>
                 <a href="/pueblo/editar/{{this.Id_Pueblo}}">Editar</a>
+                <form action="/pueblo/eliminar/{{this.Id_Pueblo}}" method="POST"
+                    style="display:inline;">
+                    <button type="submit"
+                        onclick="return confirm('¿Está seguro de que desea eliminar el Pueblo?');">Eliminar</button>
+                </form>
             </td>
         </tr>
         {{/each}}

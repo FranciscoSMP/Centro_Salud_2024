@@ -12,4 +12,6 @@ router.post('/actualizar/pueblo', puebloController.updatePueblo);
 
 router.get('/editar/:id', puebloController.getPuebloById);
 
+router.post('/eliminar/:id', puebloController.deletePueblo);
+
 module.exports = router;
