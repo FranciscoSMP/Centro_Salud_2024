@@ -12,4 +12,6 @@ router.post('/actualizar/paciente_consulta', pacienteConsultaController.updatePa
 
 router.get('/editar/:id', pacienteConsultaController.getPacienteConsultaById);
 
+router.post('/eliminar/:id', pacienteConsultaController.deletePacienteConsulta);
+
 module.exports = router;

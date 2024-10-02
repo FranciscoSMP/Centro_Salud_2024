@@ -58,3 +58,13 @@ exports.getPacienteById = async (req, res) => {
         res.status(500).send('Error al obtener el paciente');
     }
 };
+
+exports.deletePaciente = async (req, res) => {
+    try {
+        await pacienteModel.deletePaciente(req.params.id);
+        res.redirect('/paciente/table');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al eliminar el paciente');
+    }
+};

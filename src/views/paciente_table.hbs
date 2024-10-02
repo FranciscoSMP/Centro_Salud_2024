@@ -46,6 +46,11 @@
             <td>{{this.Id_Departamento}}</td>
             <td>
                 <a href="/paciente/editar/{{this.DPI}}">Editar</a>
+                <form action="/paciente/eliminar/{{this.DPI}}" method="POST"
+                    style="display:inline;">
+                    <button type="submit"
+                        onclick="return confirm('¿Está seguro de que desea eliminar este paciente?');">Eliminar</button>
+                </form>
             </td>
         </tr>
         {{/each}}

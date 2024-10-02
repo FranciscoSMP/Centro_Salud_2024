@@ -34,4 +34,9 @@ exports.getPacienteConsultaById = async (id) => {
     const conSQL = await pool.poolPromise;
     const result = await conSQL.request().query(`SELECT * FROM Paciente_Consulta WHERE Paciente_Consulta = ${id}`);
     return result.recordset[0];
+}; 
+ 
+exports.deletePacienteConsulta  = async (id) => {
+    const query = `DELETE FROM Paciente_Consulta WHERE Paciente_Consulta = ${id}`;
+    await guardarEnBaseDatos(query);
 };

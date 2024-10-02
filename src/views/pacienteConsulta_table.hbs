@@ -5,6 +5,7 @@
             <th>ID</th>
             <th>DPI Paciente</th>
             <th>ID Consulta</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -15,6 +16,11 @@
             <td>{{this.Id_Consulta}}</td>
             <td>
                 <a href="/paciente_consulta/editar/{{this.Paciente_Consulta}}">Editar</a>
+                <form action="/paciente_consulta/eliminar/{{this.Paciente_Consulta}}" method="POST"
+                    style="display:inline;">
+                    <button type="submit"
+                        onclick="return confirm('¿Está seguro de que desea eliminar la relación paciente - consulta?');">Eliminar</button>
+                </form>
             </td>
         </tr>
         {{/each}}

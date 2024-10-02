@@ -28,6 +28,16 @@ exports.getPacienteConsulta = async (req, res) => {
     }
 };
 
+exports.deletePacienteConsulta = async (req, res) => {
+    try {
+        await pacienteConsultaModel.deletePacienteConsulta(req.params.id);
+        res.redirect('/paciente_consulta/table');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al eliminar la relación paciente - consulta');
+    }
+};
+
 exports.updatePacienteConsulta = async (req, res) => {
     try {
         await pacienteConsultaModel.updatePacienteConsulta(req.body);

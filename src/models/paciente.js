@@ -50,3 +50,8 @@ exports.getPacienteById = async (id) => {
     const result = await conSQL.request().query(`SELECT * FROM Paciente WHERE DPI = ${id}`);
     return result.recordset[0];
 };
+
+exports.deletePaciente  = async (id) => {
+    const query = `DELETE FROM Paciente WHERE DPI = ${id}`;
+    await guardarEnBaseDatos(query);
+};
