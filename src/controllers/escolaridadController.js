@@ -47,3 +47,13 @@ exports.getEscolaridadById = async (req, res) => {
         res.status(500).send('Error al obtener la escolaridad');
     }
 };
+
+exports.deleteEscolaridad = async (req, res) => {
+    try {
+        await escolaridadModel.deleteEscolaridad(req.params.id);
+        res.redirect('/escolaridad/table');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al eliminar la escolaridad');
+    }
+};
