@@ -12,5 +12,7 @@ router.post('/actualizar/consulta', consultaController.updateConsulta);
 
 router.get('/editar/:id', consultaController.getConsultaById);
 
+router.post('/eliminar/:id', consultaController.deleteConsulta);
+
 module.exports = router;
 

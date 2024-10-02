@@ -47,3 +47,13 @@ exports.getComunidadById = async (req, res) => {
         res.status(500).send('Error al obtener la comunidad lingüística');
     }
 };
+
+exports.deleteComunidad_Linguistica = async (req, res) => {
+    try {
+        await comunidad_linguisticaModel.deleteComunidad_Linguistica(req.params.id);
+        res.redirect('/comunidad_linguistica/table');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al eliminar la comunidad lingüística');
+    }
+};

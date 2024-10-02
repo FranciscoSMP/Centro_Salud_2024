@@ -58,3 +58,13 @@ exports.getConsultaById = async (req, res) => {
         res.status(500).send('Error al obtener la consulta');
     }
 };
+
+exports.deleteConsulta = async (req, res) => {
+    try {
+        await consultaModel.deleteConsulta(req.params.id);
+        res.redirect('/consulta/table');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al eliminar la consulta');
+    }
+};

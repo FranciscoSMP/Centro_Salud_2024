@@ -6,7 +6,7 @@ router.get('/add', departamentoController.departamento);
 
 router.get('/table', departamentoController.getDepartamento);
 
-router.post('/guardar/departamento', departamentoController.addDepartamento);
+router.post('/guardar', departamentoController.addDepartamento);
 
 router.post('/actualizar/departamento', departamentoController.updateDepartamento);
 

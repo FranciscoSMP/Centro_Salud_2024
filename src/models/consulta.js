@@ -34,3 +34,8 @@ exports.getConsultaById = async (id) => {
     const result = await conSQL.request().query(`SELECT * FROM Consulta WHERE Id_Consulta = ${id}`);
     return result.recordset[0];
 };
+
+exports.deleteConsulta = async (id) => {
+    const query = `DELETE FROM Consulta WHERE Id_Consulta = ${id}`;
+    await guardarEnBaseDatos(query);
+};

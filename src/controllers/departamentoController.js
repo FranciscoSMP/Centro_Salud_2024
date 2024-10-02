@@ -21,7 +21,7 @@ exports.addDepartamento = guardarDatos(departamentoModel.addDepartamento, '/depa
 exports.getDepartamento = async (req, res) => {
     try {
         const departamentos = await departamentoModel.getDepartamento();
-        res.render('departamento_table', { departamentos });
+        res.render('tables/departamento', { departamentos });
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al obtener departamentos');
