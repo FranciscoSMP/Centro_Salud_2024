@@ -47,3 +47,13 @@ exports.getDiscapacidadById = async (req, res) => {
         res.status(500).send('Error al obtener la discapacidad');
     }
 };
+
+exports.deleteDiscapacidad = async (req, res) => {
+    try {
+        await discapacidadModel.deleteDiscapacidad(req.params.id);
+        res.redirect('/discapacidad/table');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al eliminar la discapacidad');
+    }
+};

@@ -14,6 +14,11 @@
             <td>{{this.Tipo_Control}}</td>
             <td>
                 <a href="/control/editar/{{this.Id_Control}}">Editar</a>
+                <form action="/control/eliminar/{{this.Id_Control}}" method="POST"
+                    style="display:inline;">
+                    <button type="submit"
+                        onclick="return confirm('¿Está seguro de que desea eliminar esta Control?');">Eliminar</button>
+                </form>
             </td>
         </tr>
         {{/each}}

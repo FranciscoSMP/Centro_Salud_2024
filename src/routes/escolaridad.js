@@ -12,4 +12,6 @@ router.post('/actualizar/escolaridad', escolaridadController.updateEscolaridad);
 
 router.get('/editar/:id', escolaridadController.getEscolaridadById);
 
+router.post('/eliminar/:id', escolaridadController.deleteEscolaridad);
+
 module.exports = router;

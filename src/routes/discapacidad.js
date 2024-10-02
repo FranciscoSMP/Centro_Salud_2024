@@ -12,4 +12,6 @@ router.post('/actualizar/discapacidad', discapacidadController.updateDiscapacida
 
 router.get('/editar/:id', discapacidadController.getDiscapacidadById);
 
+router.post('/eliminar/:id', discapacidadController.deleteDiscapacidad);
+
 module.exports = router;

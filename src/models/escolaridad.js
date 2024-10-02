@@ -33,3 +33,8 @@ exports.getEscolaridadById = async (id) => {
     const result = await conSQL.request().query(`SELECT * FROM Escolaridad WHERE Id_Escolaridad = ${id}`);
     return result.recordset[0];
 };
+
+exports.deleteEscolaridad = async (id) => {
+    const query = `DELETE FROM Escolaridad WHERE Id_Escolaridad = ${id}`;
+    await guardarEnBaseDatos(query);
+};
