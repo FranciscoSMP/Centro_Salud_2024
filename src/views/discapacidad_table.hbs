@@ -1,3 +1,4 @@
+{{#ifCond user.Id_Rol '==' 1}}
 <h2>Lista de Discapacidades</h2>
 <table>
     <thead>
@@ -24,3 +25,12 @@
         {{/each}}
     </tbody>
 </table>
+{{else ifCond user.Id_Rol '==' 2}}
+<h2 class="text-center my-4">Acceso Denegado</h2>
+<div class="container acceso-denegado">
+    <p class="text-center">No tiene permisos para acceder a esta página.</p>
+    <div class="text-center mt-4">
+        <a href="/dashboard" class="btn btn-danger">Volver al Inicio</a>
+    </div>
+</div>
+{{/ifCond}}
