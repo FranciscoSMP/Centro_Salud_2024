@@ -1,4 +1,12 @@
 const pacienteModel = require('../models/paciente');
+const escolaridadModel = require('../models/escolaridad');
+const comunidadModel = require('../models/comunidad_linguistica');
+const profesionModel = require('../models/profesion');
+const discapacidadModel = require('../models/discapacidad');
+const controlModel = require('../models/control');
+const puebloModel = require('../models/pueblo');
+const municipioModel = require('../models/municipio');
+const departamentoModel = require('../models/departamento');
 const { format } = require('date-fns');
 
 const renderView = (view) => (req, res) => {
@@ -15,7 +23,23 @@ const guardarDatos = (model, redirect) => async (req, res) => {
     }
 };
 
-exports.paciente = renderView('add/paciente');
+exports.paciente = async (req, res) => {
+    try {
+        const escolaridades = await escolaridadModel.getEscolaridad();
+        const comunidades = await comunidadModel.getComunidad_Linguistica();
+        const profesiones = await profesionModel.getProfesion();
+        const discapacidades = await discapacidadModel.getDiscapacidad();
+        const controles = await controlModel.getControl();
+        const pueblos = await puebloModel.getPueblo();
+        const municipios = await municipioModel.getMunicipio();
+        const departamentos = await departamentoModel.getDepartamento();
+        
+        res.render('add/paciente', {escolaridades, comunidades, profesiones, discapacidades, controles, pueblos, municipios, departamentos});
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al obtener datos');
+    }
+};
 
 exports.addPaciente = guardarDatos(pacienteModel.addPaciente, '/paciente/table');
 

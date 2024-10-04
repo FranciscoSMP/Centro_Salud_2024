@@ -1,9 +1,6 @@
 const consultaModel = require('../models/consulta');
+const pacienteModel = require('../models/paciente');
 const { format } = require('date-fns');
-
-const renderView = (view) => (req, res) => {
-    res.render(view);
-};
 
 const guardarDatos = (model, redirect) => async (req, res) => {
     try {
@@ -15,7 +12,18 @@ const guardarDatos = (model, redirect) => async (req, res) => {
     }
 };
 
-exports.consulta = renderView('add/consulta');
+exports.consulta = async (req, res) => {
+    try {
+        const pacientes = await pacienteModel.getPaciente();
+        res.render('add/consulta', { 
+            title: 'Añadir Consulta',
+            pacientes
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al obtener datos');
+    }
+};
 
 exports.addConsulta = guardarDatos(consultaModel.addConsulta, '/consulta/table');
 

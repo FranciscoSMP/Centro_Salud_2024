@@ -6,7 +6,7 @@ router.get('/add', municipioController.municipio);
 
 router.get('/table', municipioController.getMunicipio);
 
-router.post('/guardar/municipio', municipioController.addMunicipio);
+router.post('/guardar', municipioController.addMunicipio);
 
 router.post('/actualizar/municipio', municipioController.updateMunicipio);
 

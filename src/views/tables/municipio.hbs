@@ -7,27 +7,27 @@
 {{/if}}
 {{#ifCond user.Id_Rol '==' 1}}
 <div class="container my-4">
-    <h2 class="text-center mb-4">Lista de Departamentos</h2>
+    <h2 class="text-center mb-4">Lista de Municipios</h2>
     <table class="table table-hover table-bordered">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">ID</th>
+                <th scope="col">Nombre del Municipio</th>
                 <th scope="col">Nombre del Departamento</th>
                 <th scope="col">Acciones</th>
             </tr>
         </thead>
         <tbody>
-            {{#each departamentos}}
+            {{#each municipio}}
             <tr>
-                <td>{{this.Id_Departamento}}</td>
+                <td>{{this.Id_Municipio}}</td>
+                <td>{{this.Nombre_Municipio}}</td>
                 <td>{{this.Nombre_Departamento}}</td>
                 <td>
-                    <a href="/departamento/editar/{{this.Id_Departamento}}" class="btn btn-sm btn-warning me-2">Editar</a>
-                    <form action="/departamento/eliminar/{{this.Id_Departamento}}" method="POST" class="d-inline">
+                    <a href="/municipio/editar/{{this.Id_Municipio}}" class="btn btn-sm btn-warning me-2">Editar</a>
+                    <form action="/municipio/eliminar/{{this.Id_Municipio}}" method="POST" class="d-inline">
                         <button type="submit" class="btn btn-sm btn-danger" 
-                            onclick="return confirm('¿Está seguro de que desea eliminar este departamento?');">
-                            Eliminar
-                        </button>
+                            onclick="return confirm('¿Está seguro de que desea eliminar este Municipio?');">Eliminar</button>
                     </form>
                 </td>
             </tr>

@@ -1,12 +1,10 @@
 const municipioModel = require('../models/municipio');
-
-const renderView = (view) => (req, res) => {
-    res.render(view);
-};
+const departamentoModel = require('../models/departamento');
 
 const guardarDatos = (model, redirect) => async (req, res) => {
     try {
         await model(req.body); 
+        req.flash('success_msg', 'Datos Guardados Correctamente');
         res.redirect(redirect);
     } catch (error) {
         console.error(error);
@@ -14,17 +12,31 @@ const guardarDatos = (model, redirect) => async (req, res) => {
     }
 };
 
-exports.municipio = renderView('add/municipio');
+exports.municipio = async (req, res) => {
+    try {
+        const departamentos = await departamentoModel.getDepartamento();
+        res.render('add/municipio', { 
+            title: 'Añadir Municipio',
+            departamentos
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al obtener datos');
+    }
+};
 
 exports.addMunicipio = guardarDatos(municipioModel.addMunicipio, '/municipio/table');
 
 exports.getMunicipio = async (req, res) => {
     try {
-        const municipio = await municipioModel.getMunicipio();
-        res.render('municipio_table', { municipio });
+        const municipio = await municipioModel.getMunicipioWithDepartamento();
+        res.render('tables/municipio', { 
+            title: 'Municipios',
+            municipio 
+        });
     } catch (error) {
         console.error(error);
-        res.status(500).send('Error al obtener las relaciones');
+        res.status(500).send('Error al obtener los datos');
     }
 };
 
