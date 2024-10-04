@@ -1,8 +1,5 @@
 const enfermeroModel = require('../models/enfermero');
-
-const renderView = (view) => (req, res) => {
-    res.render(view);
-};
+const municipioModel = require('../models/municipio');
 
 const guardarDatos = (model, redirect) => async (req, res) => {
     try {
@@ -14,7 +11,18 @@ const guardarDatos = (model, redirect) => async (req, res) => {
     }
 };
 
-exports.enfermero = renderView('add/enfermero');
+exports.enfermero = async (req, res) => {
+    try {
+        const municipio = await municipioModel.getMunicipio();
+        res.render('add/enfermero', { 
+            title: 'Añadir Enfermero',
+            municipio
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al obtener datos');
+    }
+};
 
 exports.addEnfermero = guardarDatos(enfermeroModel.addEnfermero, '/enfermero/table');
 
