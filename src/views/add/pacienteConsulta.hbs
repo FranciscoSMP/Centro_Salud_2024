@@ -1,14 +1,15 @@
 <h2 class="text-center my-4">Añadir Paciente Consulta</h2>
 <form action="/paciente_consulta/guardar" method="POST" class="container form-General">
     <div class="form-group mb-3">
-        <label for="DPI_Paciente" class="form-label">DPI del Paciente</label>
+        <p><font color="red">*</font> Son campos obligatorios</p>
+        <label for="DPI_Paciente" class="form-label">DPI del Paciente <font color="red">*</font></label>
         <select name="DPI_Paciente" id="DPI_Paciente" class="form-control" required>
             {{#each pacientes}}
             <option value="{{this.DPI}}"> {{this.DPI}} </option>
             {{/each}}
         </select>
         <p></p>
-        <label for="Id_Consulta" class="form-label">Id_Consulta</label>
+        <label for="Id_Consulta" class="form-label">Consulta <font color="red">*</font></label>
         <select name="Id_Consulta" id="Id_Consulta" class="form-control" required>
             {{#each consultas}}
                 <option value="{{this.Id_Consulta}}"> {{this.Id_Consulta}} </option>

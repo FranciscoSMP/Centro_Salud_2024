@@ -1,11 +1,12 @@
 <h2 class="text-center my-4">Añadir Consulta</h2>
 <form action="/consulta/guardar" method="POST" class="container form-General">
     <div class="form-group mb-3">
-        <label for="Fecha_Consulta" class="form-label">Fecha de Consulta</label>
+        <p><font color="red">*</font> Son campos obligatorios</p>
+        <label for="Fecha_Consulta" class="form-label">Fecha de Consulta <font color="red">*</font></label>
         <input type="date" name="Fecha_Consulta" id="Fecha_Consulta" class="form-control" required>
     </div>
     <div class="form-group mb-3">
-        <label for="DPI_Paciente" class="form-label">DPI del paciente</label>
+        <label for="DPI_Paciente" class="form-label">DPI del paciente <font color="red">*</font></label>
         <select name="DPI_Paciente" id="DPI_Paciente" class="form-control" required>
             {{#each pacientes}}
             <option value="{{this.DPI}}">{{this.DPI}}</option>
