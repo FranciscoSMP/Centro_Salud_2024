@@ -1,7 +1,7 @@
 const comunidad_linguisticaModel = require('../models/comunidad_linguistica');
 
 const renderView = (view) => (req, res) => {
-    res.render(view,{
+    res.render(view, {
         title: 'Añadir Comunidad Linguistica'
     });
 };

@@ -23,7 +23,7 @@ exports.addEscolaridad = guardarDatos(escolaridadModel.addEscolaridad, '/escolar
 exports.getEscolaridad = async (req, res) => {
     try {
         const escolaridad = await escolaridadModel.getEscolaridad();
-        res.render('escolaridad_table', { 
+        res.render('tables/escolaridad', { 
             title: 'Escolaridad',
             escolaridad 
         });
@@ -46,7 +46,7 @@ exports.updateEscolaridad = async (req, res) => {
 exports.getEscolaridadById = async (req, res) => {
     try {
         const escolaridad = await escolaridadModel.getEscolaridadById(req.params.id);
-        res.render('escolaridad_update', { 
+        res.render('update/escolaridad', { 
             title: 'Actualizar Escolaridad',
             escolaridad 
         });

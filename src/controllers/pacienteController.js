@@ -54,7 +54,7 @@ exports.getPaciente = async (req, res) => {
                 Fecha_nacimiento: format(new Date(paciente.Fecha_nacimiento), 'dd/MM/yyyy')
             };
         });
-        res.render('paciente_table', { 
+        res.render('tables/paciente', { 
             title: 'Paciente',
             pacientes: pacientesFormateados 
         });
@@ -81,7 +81,7 @@ exports.getPacienteById = async (req, res) => {
             ...paciente,
             Fecha_nacimiento: format(new Date(paciente.Fecha_nacimiento), 'yyyy-MM-dd')
         };
-        res.render('paciente_update', { 
+        res.render('update/paciente', { 
             title: 'Actualizar Paciente',
             paciente: formattedPaciente 
         });

@@ -23,7 +23,7 @@ exports.addProfesion = guardarDatos(profesionModel.addProfesion, '/profesion/tab
 exports.getProfesion = async (req, res) => {
     try {
         const profesion = await profesionModel.getProfesion();
-        res.render('profesion_table', { 
+        res.render('tables/profesion', { 
             title: 'Profesion',
             profesion 
         });
@@ -46,7 +46,7 @@ exports.updateProfesion = async (req, res) => {
 exports.getProfesionById = async (req, res) => {
     try {
         const profesion = await profesionModel.getProfesionById(req.params.id);
-        res.render('profesion_update', { 
+        res.render('update/profesion', { 
             title: 'Actualizar Profesion',
             profesion 
         });

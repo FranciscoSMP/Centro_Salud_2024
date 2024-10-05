@@ -32,7 +32,7 @@ exports.addPacienteConsulta = guardarDatos(pacienteConsultaModel.addPacienteCons
 exports.getPacienteConsulta = async (req, res) => {
     try {
         const pacienteConsulta = await pacienteConsultaModel.getPacienteConsulta();
-        res.render('pacienteConsulta_table', { 
+        res.render('tables/pacienteConsulta', { 
             title: 'Paciente Consulta',
             pacienteConsulta 
         });
@@ -65,7 +65,7 @@ exports.updatePacienteConsulta = async (req, res) => {
 exports.getPacienteConsultaById = async (req, res) => {
     try {
         const pacienteConsulta = await pacienteConsultaModel.getPacienteConsultaById(req.params.id);
-        res.render('pacienteConsulta_update', { 
+        res.render('update/pacienteConsulta', { 
             title: 'Actualizar Paciente Consulta',
             pacienteConsulta 
         });

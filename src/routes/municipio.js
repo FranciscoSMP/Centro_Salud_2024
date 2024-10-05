@@ -15,4 +15,4 @@ router.get('/editar/:id', ensureAuthenticated, municipioController.getMunicipioB
 
 router.post('/eliminar/:id', ensureAuthenticated, municipioController.deleteMunicipio);
 
-module.exports = router;s
+module.exports = router;

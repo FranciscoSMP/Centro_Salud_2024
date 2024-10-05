@@ -36,7 +36,7 @@ exports.getConsulta = async (req, res) => {
                 Fecha_Consulta: format(new Date(consulta.Fecha_Consulta), 'dd/MM/yyyy')
             };
         });
-        res.render('consulta_table', { 
+        res.render('tables/consulta', { 
             title: 'Consulta',
             consultas: consultasFormateadas 
         });
@@ -63,7 +63,7 @@ exports.getConsultaById = async (req, res) => {
             ...consulta,
             Fecha_Consulta: format(new Date(consulta.Fecha_Consulta), 'yyyy-MM-dd')
         };
-        res.render('consulta_update', { 
+        res.render('update/consulta', { 
             title: 'Actualizar Consulta',
             consulta: formattedConsulta });
     } catch (error) {

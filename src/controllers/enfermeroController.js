@@ -29,7 +29,7 @@ exports.addEnfermero = guardarDatos(enfermeroModel.addEnfermero, '/enfermero/tab
 exports.getEnfermero = async (req, res) => {
     try {
         const enfermeros = await enfermeroModel.getEnfermero();
-        res.render('enfermero_table', { 
+        res.render('table/enfermero', { 
             title: 'Enfermero',
             enfermeros 
         });
@@ -52,7 +52,7 @@ exports.updateEnfermero = async (req, res) => {
 exports.getEnfermeroById = async (req, res) => {
     try {
         const enfermero = await enfermeroModel.getEnfermeroById(req.params.id);
-        res.render('enfermero_update', { 
+        res.render('update/enfermero', { 
             title: 'Actualizar Enfermeros',
             enfermero 
         });
