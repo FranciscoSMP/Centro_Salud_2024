@@ -32,7 +32,10 @@ exports.addPacienteConsulta = guardarDatos(pacienteConsultaModel.addPacienteCons
 exports.getPacienteConsulta = async (req, res) => {
     try {
         const pacienteConsulta = await pacienteConsultaModel.getPacienteConsulta();
-        res.render('pacienteConsulta_table', { pacienteConsulta });
+        res.render('pacienteConsulta_table', { 
+            title: 'Paciente Consulta',
+            pacienteConsulta 
+        });
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al obtener las relaciones');
@@ -62,7 +65,10 @@ exports.updatePacienteConsulta = async (req, res) => {
 exports.getPacienteConsultaById = async (req, res) => {
     try {
         const pacienteConsulta = await pacienteConsultaModel.getPacienteConsultaById(req.params.id);
-        res.render('pacienteConsulta_update', { pacienteConsulta });
+        res.render('pacienteConsulta_update', { 
+            title: 'Actualizar Paciente Consulta',
+            pacienteConsulta 
+        });
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al obtener la comunidad lingüística');

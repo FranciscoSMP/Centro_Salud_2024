@@ -36,7 +36,10 @@ exports.getConsulta = async (req, res) => {
                 Fecha_Consulta: format(new Date(consulta.Fecha_Consulta), 'dd/MM/yyyy')
             };
         });
-        res.render('consulta_table', { consultas: consultasFormateadas });
+        res.render('consulta_table', { 
+            title: 'Consulta',
+            consultas: consultasFormateadas 
+        });
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al obtener consultas');
@@ -60,7 +63,9 @@ exports.getConsultaById = async (req, res) => {
             ...consulta,
             Fecha_Consulta: format(new Date(consulta.Fecha_Consulta), 'yyyy-MM-dd')
         };
-        res.render('consulta_update', { consulta: formattedConsulta });
+        res.render('consulta_update', { 
+            title: 'Actualizar Consulta',
+            consulta: formattedConsulta });
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al obtener la consulta');

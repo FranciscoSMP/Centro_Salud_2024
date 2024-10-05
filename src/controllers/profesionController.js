@@ -1,7 +1,9 @@
 const profesionModel = require('../models/profesion');
 
 const renderView = (view) => (req, res) => {
-    res.render(view);
+    res.render(view,{
+        title: 'Añadir Profesion'
+    });
 };
 
 const guardarDatos = (model, redirect) => async (req, res) => {
@@ -21,7 +23,10 @@ exports.addProfesion = guardarDatos(profesionModel.addProfesion, '/profesion/tab
 exports.getProfesion = async (req, res) => {
     try {
         const profesion = await profesionModel.getProfesion();
-        res.render('profesion_table', { profesion });
+        res.render('profesion_table', { 
+            title: 'Profesion',
+            profesion 
+        });
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al obtener profesiones');
@@ -41,7 +46,10 @@ exports.updateProfesion = async (req, res) => {
 exports.getProfesionById = async (req, res) => {
     try {
         const profesion = await profesionModel.getProfesionById(req.params.id);
-        res.render('profesion_update', { profesion });
+        res.render('profesion_update', { 
+            title: 'Actualizar Profesion',
+            profesion 
+        });
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al obtener la profesion');

@@ -10,7 +10,9 @@ const departamentoModel = require('../models/departamento');
 const { format } = require('date-fns');
 
 const renderView = (view) => (req, res) => {
-    res.render(view);
+    res.render(view, {
+        title: 'Añadir Paciente'
+    });
 };
 
 const guardarDatos = (model, redirect) => async (req, res) => {
@@ -52,7 +54,10 @@ exports.getPaciente = async (req, res) => {
                 Fecha_nacimiento: format(new Date(paciente.Fecha_nacimiento), 'dd/MM/yyyy')
             };
         });
-        res.render('paciente_table', { pacientes: pacientesFormateados });
+        res.render('paciente_table', { 
+            title: 'Paciente',
+            pacientes: pacientesFormateados 
+        });
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al obtener pacientes');
@@ -76,7 +81,10 @@ exports.getPacienteById = async (req, res) => {
             ...paciente,
             Fecha_nacimiento: format(new Date(paciente.Fecha_nacimiento), 'yyyy-MM-dd')
         };
-        res.render('paciente_update', { paciente: formattedPaciente });
+        res.render('paciente_update', { 
+            title: 'Actualizar Paciente',
+            paciente: formattedPaciente 
+        });
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al obtener el paciente');

@@ -29,7 +29,10 @@ exports.addEnfermero = guardarDatos(enfermeroModel.addEnfermero, '/enfermero/tab
 exports.getEnfermero = async (req, res) => {
     try {
         const enfermeros = await enfermeroModel.getEnfermero();
-        res.render('enfermero_table', { enfermeros });
+        res.render('enfermero_table', { 
+            title: 'Enfermero',
+            enfermeros 
+        });
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al obtener enfermeros');
@@ -49,7 +52,10 @@ exports.updateEnfermero = async (req, res) => {
 exports.getEnfermeroById = async (req, res) => {
     try {
         const enfermero = await enfermeroModel.getEnfermeroById(req.params.id);
-        res.render('enfermero_update', { enfermero });
+        res.render('enfermero_update', { 
+            title: 'Actualizar Enfermeros',
+            enfermero 
+        });
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al obtener a Enfermero');

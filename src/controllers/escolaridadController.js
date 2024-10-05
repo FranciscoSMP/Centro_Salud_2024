@@ -1,7 +1,9 @@
 const escolaridadModel = require('../models/escolaridad');
 
 const renderView = (view) => (req, res) => {
-    res.render(view);
+    res.render(view, {
+        title: 'Añadir Escolaridad'
+    });
 };
 
 const guardarDatos = (model, redirect) => async (req, res) => {
@@ -21,7 +23,10 @@ exports.addEscolaridad = guardarDatos(escolaridadModel.addEscolaridad, '/escolar
 exports.getEscolaridad = async (req, res) => {
     try {
         const escolaridad = await escolaridadModel.getEscolaridad();
-        res.render('escolaridad_table', { escolaridad });
+        res.render('escolaridad_table', { 
+            title: 'Escolaridad',
+            escolaridad 
+        });
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al obtener Escolaridades');
@@ -41,7 +46,10 @@ exports.updateEscolaridad = async (req, res) => {
 exports.getEscolaridadById = async (req, res) => {
     try {
         const escolaridad = await escolaridadModel.getEscolaridadById(req.params.id);
-        res.render('escolaridad_update', { escolaridad });
+        res.render('escolaridad_update', { 
+            title: 'Actualizar Escolaridad',
+            escolaridad 
+        });
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al obtener la escolaridad');
