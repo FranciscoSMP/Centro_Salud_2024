@@ -1,3 +1,10 @@
+{{#if success_msg}}
+<div id="success-alert" class="alert-overlay alert-center fade-out">
+    <div class="col-md-2">
+        <div class="alert alert-success text-center">{{success_msg}}</div>
+    </div>
+</div>
+{{/if}}
 {{#ifCond user.Id_Rol '==' 1}}
 <h2>Lista de Profesiones</h2>
 <table>
