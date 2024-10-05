@@ -122,8 +122,8 @@ select.form-control option {
 }
 
 select.form-control:focus option {
-    background-color: #ff00b3;
-    color: white;
+    background-color:white;
+    color: black;
 }
 
 .login-btn {

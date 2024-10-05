@@ -1,8 +1,9 @@
 {{#ifCond user.Id_Rol '==' 1}}
     <h2 class="text-center my-4">Añadir Discapacidad</h2>
-    <form action="/discapacidad/guardar/discapacidad" method="POST" class="container form-General">
+    <form action="/discapacidad/guardar" method="POST" class="container form-General">
         <div class="form-group mb-3">
-            <label for="Tipo_Discapacidad" class="form-label" >Tipo de Discapacidad</label>
+            <p><font color="red">*</font> Son campos obligatorios</p>
+            <label for="Tipo_Discapacidad" class="form-label" >Tipo de Discapacidad <font color="red">*</font></label>
             <input type="text" name="Tipo_Discapacidad" id="Tipo_Discapacidad" class="form-control" required>
         </div>
         <div class="text-center">
