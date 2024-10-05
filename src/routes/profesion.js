@@ -7,9 +7,9 @@ router.get('/add', ensureAuthenticated, profesionController.profesion);
 
 router.get('/table', ensureAuthenticated, profesionController.getProfesion);
 
-router.post('/guardar/profesion', ensureAuthenticated, profesionController.addProfesion);
+router.post('/guardar', ensureAuthenticated, profesionController.addProfesion);
 
-router.post('/actualizar/profesion', ensureAuthenticated, profesionController.updateProfesion);
+router.post('/actualizar', ensureAuthenticated, profesionController.updateProfesion);
 
 router.get('/editar/:id', ensureAuthenticated, profesionController.getProfesionById);
 

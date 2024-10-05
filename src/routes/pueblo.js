@@ -7,9 +7,9 @@ router.get('/add', ensureAuthenticated, puebloController.pueblo);
 
 router.get('/table', ensureAuthenticated, puebloController.getPueblo);
 
-router.post('/guardar/pueblo', ensureAuthenticated, puebloController.addPueblo);
+router.post('/guardar', ensureAuthenticated, puebloController.addPueblo);
 
-router.post('/actualizar/pueblo', ensureAuthenticated, puebloController.updatePueblo);
+router.post('/actualizar', ensureAuthenticated, puebloController.updatePueblo);
 
 router.get('/editar/:id', ensureAuthenticated, puebloController.getPuebloById);
 

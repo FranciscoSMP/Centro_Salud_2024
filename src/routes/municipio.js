@@ -9,10 +9,10 @@ router.get('/table', ensureAuthenticated, municipioController.getMunicipio);
 
 router.post('/guardar', ensureAuthenticated, municipioController.addMunicipio);
 
-router.post('/actualizar/municipio', ensureAuthenticated, municipioController.updateMunicipio);
+router.post('/actualizar', ensureAuthenticated, municipioController.updateMunicipio);
 
 router.get('/editar/:id', ensureAuthenticated, municipioController.getMunicipioById);
 
 router.post('/eliminar/:id', ensureAuthenticated, municipioController.deleteMunicipio);
 
-module.exports = router;
+module.exports = router;s

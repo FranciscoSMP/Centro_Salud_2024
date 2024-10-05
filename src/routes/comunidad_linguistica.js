@@ -7,9 +7,9 @@ router.get('/add', ensureAuthenticated, comunidad_linguisticaController.comunida
 
 router.get('/table', ensureAuthenticated, comunidad_linguisticaController.getComunidad_Linguistica);
 
-router.post('/guardar/comunidad_linguistica', ensureAuthenticated, comunidad_linguisticaController.addComunidad_Linguistica);
+router.post('/guardar', ensureAuthenticated, comunidad_linguisticaController.addComunidad_Linguistica);
 
-router.post('/actualizar/comunidad_linguistica', ensureAuthenticated, comunidad_linguisticaController.updateComunidad_Linguistica);
+router.post('/actualizar', ensureAuthenticated, comunidad_linguisticaController.updateComunidad_Linguistica);
 
 router.get('/editar/:id', ensureAuthenticated, comunidad_linguisticaController.getComunidadById);
 

@@ -7,9 +7,9 @@ router.get('/add', ensureAuthenticated, escolaridadController.escolaridad);
 
 router.get('/table', ensureAuthenticated, escolaridadController.getEscolaridad);
 
-router.post('/guardar/escolaridad', ensureAuthenticated, escolaridadController.addEscolaridad);
+router.post('/guardar', ensureAuthenticated, escolaridadController.addEscolaridad);
 
-router.post('/actualizar/escolaridad', ensureAuthenticated, escolaridadController.updateEscolaridad);
+router.post('/actualizar', ensureAuthenticated, escolaridadController.updateEscolaridad);
 
 router.get('/editar/:id', ensureAuthenticated, escolaridadController.getEscolaridadById);
 

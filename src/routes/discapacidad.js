@@ -7,9 +7,9 @@ router.get('/add', ensureAuthenticated, discapacidadController.discapacidad);
 
 router.get('/table', ensureAuthenticated, discapacidadController.getDiscapacidad);
 
-router.post('/guardar/discapacidad', ensureAuthenticated, discapacidadController.addDiscapacidad);
+router.post('/guardar', ensureAuthenticated, discapacidadController.addDiscapacidad);
 
-router.post('/actualizar/discapacidad', ensureAuthenticated, discapacidadController.updateDiscapacidad);
+router.post('/actualizar', ensureAuthenticated, discapacidadController.updateDiscapacidad);
 
 router.get('/editar/:id', ensureAuthenticated, discapacidadController.getDiscapacidadById);
 

@@ -7,9 +7,9 @@ router.get('/add', ensureAuthenticated, consultaController.consulta);
 
 router.get('/table', ensureAuthenticated, consultaController.getConsulta);
 
-router.post('/guardar/consulta', ensureAuthenticated, consultaController.addConsulta);
+router.post('/guardar', ensureAuthenticated, consultaController.addConsulta);
 
-router.post('/actualizar/consulta', ensureAuthenticated, consultaController.updateConsulta);
+router.post('/actualizar', ensureAuthenticated, consultaController.updateConsulta);
 
 router.get('/editar/:id', ensureAuthenticated, consultaController.getConsultaById);
 
