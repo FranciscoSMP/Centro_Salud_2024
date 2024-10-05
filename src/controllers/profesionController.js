@@ -9,6 +9,7 @@ const renderView = (view) => (req, res) => {
 const guardarDatos = (model, redirect) => async (req, res) => {
     try {
         await model(req.body); 
+        req.flash('success_msg', 'Datos Guardados Correctamente');
         res.redirect(redirect);
     } catch (error) {
         console.error(error);
@@ -36,6 +37,7 @@ exports.getProfesion = async (req, res) => {
 exports.updateProfesion = async (req, res) => {
     try {
         await profesionModel.updateProfesion(req.body);
+        req.flash('success_msg', 'Datos Actualizados Correctamente');
         res.redirect('/profesion/table');
     } catch (error) {
         console.error(error);
@@ -59,6 +61,7 @@ exports.getProfesionById = async (req, res) => {
 exports.deleteProfesion = async (req, res) => {
     try {
         await profesionModel.deleteProfesion(req.params.id);
+        req.flash('success_msg', 'Datos Eliminados Correctamente');
         res.redirect('/profesion/table');
     } catch (error) {
         console.error(error);

@@ -4,6 +4,7 @@ const municipioModel = require('../models/municipio');
 const guardarDatos = (model, redirect) => async (req, res) => {
     try {
         await model(req.body); 
+        req.flash('success_msg', 'Datos Guardados Correctamente');
         res.redirect(redirect);
     } catch (error) {
         console.error(error);
@@ -42,6 +43,7 @@ exports.getEnfermero = async (req, res) => {
 exports.updateEnfermero = async (req, res) => {
     try {
         await enfermeroModel.updateEnfermero(req.body);
+        req.flash('success_msg', 'Datos Actualizados Correctamente');
         res.redirect('/enfermero/table');
     } catch (error) {
         console.error(error);
@@ -65,6 +67,7 @@ exports.getEnfermeroById = async (req, res) => {
 exports.deleteEnfermero = async (req, res) => {
     try {
         await enfermeroModel.deleteEnfermero(req.params.id);
+        req.flash('success_msg', 'Datos Eliminados Correctamente');
         res.redirect('/enfermero/table');
     } catch (error) {
         console.error(error);

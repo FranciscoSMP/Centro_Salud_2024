@@ -4,7 +4,8 @@ const { format } = require('date-fns');
 
 const guardarDatos = (model, redirect) => async (req, res) => {
     try {
-        await model(req.body); 
+        await model(req.body);
+        req.flash('success_msg', 'Datos Guardados Correctamente'); 
         res.redirect(redirect);
     } catch (error) {
         console.error(error);
@@ -49,6 +50,7 @@ exports.getConsulta = async (req, res) => {
 exports.updateConsulta = async (req, res) => {
     try {
         await consultaModel.updateConsulta(req.body);
+        req.flash('success_msg', 'Datos Actualizados Correctamente');
         res.redirect('/consulta/table');
     } catch (error) {
         console.error(error);
@@ -75,6 +77,7 @@ exports.getConsultaById = async (req, res) => {
 exports.deleteConsulta = async (req, res) => {
     try {
         await consultaModel.deleteConsulta(req.params.id);
+        req.flash('success_msg', 'Datos Eliminados Correctamente');
         res.redirect('/consulta/table');
     } catch (error) {
         console.error(error);

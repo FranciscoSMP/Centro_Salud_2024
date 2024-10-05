@@ -9,6 +9,7 @@ const renderView = (view) => (req, res) => {
 const guardarDatos = (model, redirect) => async (req, res) => {
     try {
         await model(req.body); 
+        req.flash('success_msg', 'Datos Guardados Correctamente');
         res.redirect(redirect);
     } catch (error) {
         console.error(error);
@@ -36,6 +37,7 @@ exports.getEscolaridad = async (req, res) => {
 exports.updateEscolaridad = async (req, res) => {
     try {
         await escolaridadModel.updateEscolaridad(req.body);
+        req.flash('success_msg', 'Datos Actualizados Correctamente');
         res.redirect('/escolaridad/table');
     } catch (error) {
         console.error(error);
@@ -59,6 +61,7 @@ exports.getEscolaridadById = async (req, res) => {
 exports.deleteEscolaridad = async (req, res) => {
     try {
         await escolaridadModel.deleteEscolaridad(req.params.id);
+        req.flash('success_msg', 'Datos Eliminados Correctamente');
         res.redirect('/escolaridad/table');
     } catch (error) {
         console.error(error);

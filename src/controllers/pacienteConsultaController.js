@@ -5,6 +5,7 @@ const consultaModel = require('../models/consulta');
 const guardarDatos = (model, redirect) => async (req, res) => {
     try {
         await model(req.body); 
+        req.flash('success_msg', 'Datos Guardados Correctamente');
         res.redirect(redirect);
     } catch (error) {
         console.error(error);
@@ -45,6 +46,7 @@ exports.getPacienteConsulta = async (req, res) => {
 exports.deletePacienteConsulta = async (req, res) => {
     try {
         await pacienteConsultaModel.deletePacienteConsulta(req.params.id);
+        req.flash('success_msg', 'Datos Eliminados Correctamente');
         res.redirect('/paciente_consulta/table');
     } catch (error) {
         console.error(error);
@@ -55,6 +57,7 @@ exports.deletePacienteConsulta = async (req, res) => {
 exports.updatePacienteConsulta = async (req, res) => {
     try {
         await pacienteConsultaModel.updatePacienteConsulta(req.body);
+        req.flash('success_msg', 'Datos Actualizados Correctamente');
         res.redirect('/paciente_consulta/table');
     } catch (error) {
         console.error(error);

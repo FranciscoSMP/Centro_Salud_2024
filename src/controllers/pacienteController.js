@@ -9,15 +9,11 @@ const municipioModel = require('../models/municipio');
 const departamentoModel = require('../models/departamento');
 const { format } = require('date-fns');
 
-const renderView = (view) => (req, res) => {
-    res.render(view, {
-        title: 'Añadir Paciente'
-    });
-};
 
 const guardarDatos = (model, redirect) => async (req, res) => {
     try {
         await model(req.body); 
+        req.flash('success_msg', 'Datos Guardados Correctamente');
         res.redirect(redirect);
     } catch (error) {
         console.error(error);
@@ -36,7 +32,10 @@ exports.paciente = async (req, res) => {
         const municipios = await municipioModel.getMunicipio();
         const departamentos = await departamentoModel.getDepartamento();
         
-        res.render('add/paciente', {escolaridades, comunidades, profesiones, discapacidades, controles, pueblos, municipios, departamentos});
+        res.render('add/paciente', {
+            title: 'Añadir Paciente',
+            escolaridades, comunidades, profesiones, discapacidades, controles, pueblos, municipios, departamentos
+        });
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al obtener datos');
@@ -67,6 +66,7 @@ exports.getPaciente = async (req, res) => {
 exports.updatePaciente = async (req, res) => {
     try {
         await pacienteModel.updatePaciente(req.body);
+        req.flash('success_msg', 'Datos Actualizados Correctamente');
         res.redirect('/paciente/table');
     } catch (error) {
         console.error(error);
@@ -94,6 +94,7 @@ exports.getPacienteById = async (req, res) => {
 exports.deletePaciente = async (req, res) => {
     try {
         await pacienteModel.deletePaciente(req.params.id);
+        req.flash('success_msg', 'Datos Eliminados Correctamente');
         res.redirect('/paciente/table');
     } catch (error) {
         console.error(error);
