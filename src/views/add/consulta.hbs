@@ -8,6 +8,7 @@
     <div class="form-group mb-3">
         <label for="DPI_Paciente" class="form-label">DPI del paciente <font color="red">*</font></label>
         <select name="DPI_Paciente" id="DPI_Paciente" class="form-control" required>
+            <option value="" disabled selected>Seleccione un Campo</option>
             {{#each pacientes}}
             <option value="{{this.DPI}}">{{this.DPI}}</option>
             {{/each}}
