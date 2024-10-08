@@ -236,6 +236,14 @@ button[type="submit"] {
     transition: background-color 0.3s ease;
 }
 
+.btn-secondary {
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
 /* Estilos para las etiquetas */
 .form-label {
     font-weight: bold;
@@ -388,3 +396,12 @@ button[type="submit"] {
 .accordion-collapse.show {
     border-top: none;
 }
+
+/* Estilos para el footer en la página index */
+.footer-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
