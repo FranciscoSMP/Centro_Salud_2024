@@ -23,10 +23,11 @@
             <td>{{this.Nombre_Pueblo}}</td>
             <td>
                 <a href="/pueblo/editar/{{this.Id_Pueblo}}" class="btn btn-sm btn-warning me-2">Editar</a>
-                <form action="/pueblo/eliminar/{{this.Id_Pueblo}}" method="POST" class="d-inline">
-                    <button type="submit" class="btn btn-sm btn-danger" 
-                        onclick="return confirm('¿Está seguro de que desea eliminar el Pueblo?');">Eliminar</button>
-                </form>
+                <button type="submit" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                        data-bs-target="#confirmDeleteModal"
+                        onclick="setDeleteModal('el pueblo', '{{this.Nombre_Pueblo}}', 'pueblo', '{{this.Id_Pueblo}}')">
+                        Eliminar
+                </button>
             </td>
         </tr>
         {{/each}}

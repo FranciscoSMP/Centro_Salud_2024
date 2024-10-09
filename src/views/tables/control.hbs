@@ -23,10 +23,11 @@
             <td>{{this.Tipo_Control}}</td>
             <td>
                 <a href="/control/editar/{{this.Id_Control}}" class="btn btn-sm btn-warning me-2">Editar</a>
-                <form action="/control/eliminar/{{this.Id_Control}}" method="POST" class="d-inline">
-                    <button type="submit" class="btn btn-sm btn-danger" 
-                        onclick="return confirm('¿Está seguro de que desea eliminar esta Control?');">Eliminar</button>
-                </form>
+                <button type="submit" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                        data-bs-target="#confirmDeleteModal"
+                        onclick="setDeleteModal('el control', '{{this.Tipo_Control}}', 'control', '{{this.Id_Control}}')">
+                        Eliminar
+                </button>
             </td>
         </tr>
         {{/each}}
