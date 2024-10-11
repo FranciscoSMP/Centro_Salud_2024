@@ -8,6 +8,7 @@
 {{#ifCond user.Id_Rol '==' 1}}
 <div class="container my-4">
     <h2 class="text-center mb-4">Lista de Departamentos</h2>
+    {{#if departamentos.length}}
     <table class="table table-hover table-bordered">
         <thead class="thead-dark">
             <tr>
@@ -34,6 +35,9 @@
             {{/each}}
         </tbody>
     </table>
+    {{else}}
+    <div class="alert alert-warning text-center">No hay departamentos disponibles en este momento.</div>
+    {{/if}}
 </div>
 {{else ifCond user.Id_Rol '==' 2}}
 <h2 class="text-center my-4">Acceso Denegado</h2>

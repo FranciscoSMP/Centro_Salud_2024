@@ -7,6 +7,7 @@
 {{/if}}
 <div class="container my-4">
     <h2 class="text-center mb-4">Lista de Pacientes</h2>
+    {{#if pacientes.length}}
     <div class="accordion accordion-flush" id="accordionFlushExample">
         {{#each pacientes}}
         <div class="accordion-item">
@@ -106,4 +107,7 @@
         </div>
         {{/each}}
     </div>
+    {{else}}
+        <div class="alert alert-warning text-center">No hay pacientes disponibles en este momento.</div>
+    {{/if}}
 </div>
