@@ -6,31 +6,36 @@
 </div>
 {{/if}}
 <div class="container my-4">
-<h2 class="text-center mb-4">Lista de Consultas</h2>
-<table class="table table-hover table-bordered">
-    <thead class="thead-dark"> 
-        <tr>
-            <th scope="col">ID Consulta</th>
-            <th scope="col">Fecha Consulta</th>
-            <th scope="col">DPI Paciente</th>
-            <th scope="col">Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each consultas}}
-        <tr>
-            <td>{{this.Id_Consulta}}</td>
-            <td>{{this.Fecha_Consulta}}</td>
-            <td>{{this.DPI_Paciente}}</td>
-            <td>
-                <a href="/consulta/editar/{{this.Id_Consulta}}" class="btn btn-sm btn-warning me-2">Editar</a>
-                <form action="/consulta/eliminar/{{this.Id_Consulta}}" method="POST" class="d-inline">
-                    <button type="submit" class="btn btn-sm btn-danger"
-                        onclick="return confirm('¿Está seguro de que desea eliminar esta consulta?');">Eliminar</button>
-                </form>
-            </td>
-        </tr>
-        {{/each}}
-    </tbody>
-</table>
+    <h2 class="text-center mb-4">Lista de Consultas</h2>
+    {{#if consultas.length}}
+    <table class="table table-hover table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID Consulta</th>
+                <th scope="col">Fecha Consulta</th>
+                <th scope="col">DPI Paciente</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each consultas}}
+            <tr>
+                <td>{{this.Id_Consulta}}</td>
+                <td>{{this.Fecha_Consulta}}</td>
+                <td>{{this.DPI_Paciente}}</td>
+                <td>
+                    <a href="/consulta/editar/{{this.Id_Consulta}}" class="btn btn-sm btn-warning me-2">Editar</a>
+                    <button type="submit" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                        data-bs-target="#confirmDeleteModal"
+                        onclick="setDeleteModal('la consulta del paciente con DPI', '{{this.DPI_Paciente}}', 'consulta', '{{this.Id_Consulta}}')">
+                        Eliminar
+                    </button>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    {{else}}
+    <div class="alert alert-warning text-center">No hay consultas disponibles en este momento.</div>
+    {{/if}}
 </div>
