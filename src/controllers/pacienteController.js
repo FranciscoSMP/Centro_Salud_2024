@@ -11,7 +11,7 @@ const { format } = require('date-fns');
 
 const guardarDatos = (model, redirect) => async (req, res) => {
     try {
-        await model(req.body); 
+        await model(req.body);
         req.flash('success_msg', 'Datos Guardados Correctamente');
         res.redirect(redirect);
     } catch (error) {
@@ -29,7 +29,7 @@ exports.paciente = async (req, res) => {
         const pueblos = await puebloModel.getPueblo();
         const municipios = await municipioModel.getMunicipio();
         const departamentos = await departamentoModel.getDepartamento();
-        
+
         res.render('add/paciente', {
             title: 'Añadir Paciente',
             escolaridades, comunidades, profesiones, discapacidades, pueblos, municipios, departamentos
@@ -48,16 +48,18 @@ exports.getPaciente = async (req, res) => {
         const pacientesFormateados = pacientes.map(paciente => {
             return {
                 ...paciente,
-                Fecha_nacimiento: format(new Date(paciente.Fecha_nacimiento), 'dd/MM/yyyy')
+                Fecha_nacimiento: format(new Date(paciente.Fecha_nacimiento), 'dd/MM/yyyy'),
+                IGSS: paciente.IGSS === 'S' ? 'Sí' : 'No',
+                Genero: paciente.Genero === 'M' ? 'Masculino' : 'Femenino'
             };
         });
-        res.render('tables/paciente', { 
+        res.render('tables/paciente', {
             title: 'Paciente',
-            pacientes: pacientesFormateados 
+            pacientes: pacientesFormateados
         });
     } catch (error) {
         console.error(error);
-        res.status(500).send('Error al obtener pacientes');
+        res.status(500).send('Error al obtener los datos');
     }
 };
 
@@ -82,12 +84,12 @@ exports.getPacienteById = async (req, res) => {
         const pueblos = await puebloModel.getPueblo();
         const municipios = await municipioModel.getMunicipio();
         const departamentos = await departamentoModel.getDepartamento();
-        
+
         const formattedPaciente = {
             ...paciente,
             Fecha_nacimiento: format(new Date(paciente.Fecha_nacimiento), 'yyyy-MM-dd')
         };
-        res.render('update/paciente', { 
+        res.render('update/paciente', {
             title: 'Actualizar Paciente',
             paciente: formattedPaciente,
             escolaridades,
