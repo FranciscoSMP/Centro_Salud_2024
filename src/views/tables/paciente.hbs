@@ -5,6 +5,16 @@
     </div>
 </div>
 {{/if}}
+<p></p>
+<div class="text-center mb-3">
+    <a href="/paciente/excel" class="btn btn-success btn-sm mx-1 export-btn">
+        <i class="bi bi-file-earmark-excel-fill me-1"></i> Exportar a Excel
+    </a>
+    <a href="/paciente/pdf" class="btn btn-danger btn-sm mx-1 export-btn">
+        <i class="bi bi-file-earmark-pdf-fill me-1"></i> Exportar a PDF
+    </a>
+</div>
+
 <div class="container my-4">
     <h2 class="text-center mb-4">Lista de Pacientes</h2>
     {{#if pacientes.length}}

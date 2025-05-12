@@ -454,3 +454,15 @@ button[type="submit"] {
     background-color: #9DBDC4;
     color: #fff;
 }
+
+.export-btn {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    transition: all 0.25s ease-in-out;
+    border-radius: 0.3rem;
+    
+}
+
+.export-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
