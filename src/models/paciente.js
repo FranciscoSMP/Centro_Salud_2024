@@ -9,13 +9,13 @@ const ejecutarSQLServer = async (query) => {
     return conSQL.request().query(query);
 };
 
-exports.addPaciente = async ({ DPI, Primer_nombre, Segundo_nombre, Tercer_nombre, Primer_apellido, Segundo_apellido, Fecha_nacimiento, Telefono, IGSS, Genero, Id_Escolaridad, Id_Comunidad_Linguistica, Id_Profesion, Id_Disapacidad, Id_Pueblo, Id_Municipio, Id_Departamento }) => {
-    const query = `INSERT INTO Paciente (DPI, Primer_nombre, Segundo_nombre, Tercer_nombre, Primer_apellido, Segundo_apellido, Fecha_nacimiento, Telefono, IGSS, Genero, Id_Escolaridad, Id_Comunidad_Linguistica, Id_Profesion, Id_Disapacidad, Id_Pueblo, Id_Municipio, Id_Departamento) 
-    VALUES ('${DPI}', '${Primer_nombre}', '${Segundo_nombre}', '${Tercer_nombre}', '${Primer_apellido}', '${Segundo_apellido}', '${Fecha_nacimiento}', '${Telefono}', '${IGSS}', '${Genero}', ${Id_Escolaridad}, ${Id_Comunidad_Linguistica}, ${Id_Profesion}, ${Id_Disapacidad}, ${Id_Pueblo}, ${Id_Municipio}, ${Id_Departamento})`;
+exports.addPaciente = async ({ DPI, Primer_nombre, Segundo_nombre, Tercer_nombre, Primer_apellido, Segundo_apellido, Fecha_nacimiento, Telefono, IGSS, Genero, Id_Escolaridad, Id_Comunidad_Linguistica, Id_Profesion, Id_Discapacidad, Id_Pueblo, Id_Municipio, Id_Departamento }) => {
+    const query = `INSERT INTO Paciente (DPI, Primer_nombre, Segundo_nombre, Tercer_nombre, Primer_apellido, Segundo_apellido, Fecha_nacimiento, Telefono, IGSS, Genero, Id_Escolaridad, Id_Comunidad_Linguistica, Id_Profesion, Id_Discapacidad, Id_Pueblo, Id_Municipio, Id_Departamento) 
+    VALUES ('${DPI}', '${Primer_nombre}', '${Segundo_nombre}', '${Tercer_nombre}', '${Primer_apellido}', '${Segundo_apellido}', '${Fecha_nacimiento}', '${Telefono}', '${IGSS}', '${Genero}', ${Id_Escolaridad}, ${Id_Comunidad_Linguistica}, ${Id_Profesion}, ${Id_Discapacidad}, ${Id_Pueblo}, ${Id_Municipio}, ${Id_Departamento})`;
     await guardarEnBaseDatos(query);
 };
 
-exports.updatePaciente = async ({ DPI, Primer_nombre, Segundo_nombre, Tercer_nombre, Primer_apellido, Segundo_apellido, Fecha_nacimiento, Telefono, IGSS, Genero, Id_Escolaridad, Id_Comunidad_Linguistica, Id_Profesion, Id_Disapacidad, Id_Pueblo, Id_Municipio, Id_Departamento }) => {
+exports.updatePaciente = async ({ DPI, Primer_nombre, Segundo_nombre, Tercer_nombre, Primer_apellido, Segundo_apellido, Fecha_nacimiento, Telefono, IGSS, Genero, Id_Escolaridad, Id_Comunidad_Linguistica, Id_Profesion, Id_Discapacidad, Id_Pueblo, Id_Municipio, Id_Departamento }) => {
     const query = `
         UPDATE Paciente
         SET Primer_nombre = '${Primer_nombre}',
@@ -30,7 +30,7 @@ exports.updatePaciente = async ({ DPI, Primer_nombre, Segundo_nombre, Tercer_nom
         Id_Escolaridad = ${Id_Escolaridad},
         Id_Comunidad_Linguistica = ${Id_Comunidad_Linguistica},
         Id_Profesion = ${Id_Profesion},
-        Id_Disapacidad = ${Id_Disapacidad},
+        Id_Discapacidad = ${Id_Discapacidad},
         Id_Pueblo = ${Id_Pueblo},
         Id_Municipio = ${Id_Municipio},
         Id_Departamento = ${Id_Departamento}
@@ -74,7 +74,7 @@ exports.getPaciente = async () => {
         JOIN Escolaridad ON Paciente.Id_Escolaridad = Escolaridad.Id_Escolaridad
         JOIN Comunidad_Linguistica ON Paciente.Id_Comunidad_Linguistica = Comunidad_Linguistica.Id_Comunidad_Linguistica
         JOIN Profesion ON Paciente.Id_Profesion = Profesion.Id_Profesion
-        JOIN Discapacidad ON Paciente.Id_Disapacidad = Discapacidad.Id_Discapacidad
+        JOIN Discapacidad ON Paciente.Id_Discapacidad = Discapacidad.Id_Discapacidad
         JOIN Pueblo ON Paciente.Id_Pueblo = Pueblo.Id_Pueblo
         JOIN Municipio ON Paciente.Id_Municipio = Municipio.Id_Municipio
         JOIN Departamento ON Paciente.Id_Departamento = Departamento.Id_Departamento

@@ -44,7 +44,7 @@ INSERT INTO Escolaridad (Nivel_Escolaridad) VALUES
 INSERT INTO Paciente (
     DPI, Primer_nombre, Segundo_nombre, Tercer_nombre, Primer_apellido, Segundo_apellido,
     Fecha_nacimiento, Telefono, IGSS, Genero, Id_Escolaridad,
-    Id_Comunidad_Linguistica, Id_Profesion, Id_Disapacidad, Id_Pueblo,
+    Id_Comunidad_Linguistica, Id_Profesion, Id_Discapacidad, Id_Pueblo,
     Id_Municipio, Id_Departamento
 ) VALUES
 ('1234567890123', 'Juan', 'Carlos', NULL, 'García', 'Lopez', '1990-05-15', '12345678', 'S', 'M', 1, 2, 1, 1, 1, 1, 1),
